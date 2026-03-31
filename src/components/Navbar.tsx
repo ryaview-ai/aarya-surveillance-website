@@ -37,7 +37,7 @@ const Navbar = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 group">
           <AaryaLogo />
-          <span className="font-semibold text-primary text-sm lg:text-base leading-tight hidden sm:block">
+          <span className="font-semibold text-primary text-sm lg:text-base leading-tight block">
             Aarya
             <span className="block text-xs font-normal text-muted-foreground">
               Surveillance & IT
