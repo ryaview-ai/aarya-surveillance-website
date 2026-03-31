@@ -84,7 +84,7 @@ const Navbar = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 top-16 bg-background z-40 flex flex-col p-6 md:hidden"
+            className="fixed inset-0 top-16 bg-charcoal z-40 flex flex-col p-6 md:hidden"
           >
             <nav className="flex flex-col gap-2">
               {navLinks.map((link) => (
