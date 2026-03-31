@@ -5,11 +5,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import AaryaLogo from "./AaryaLogo";
 
 const navLinks = [
-  { label: "Home",    to: "/" },
-  { label: "About",   to: "/about" },
+  { label: "Home",     to: "/" },
+  { label: "About",    to: "/about" },
   { label: "Services", to: "/services" },
-  { label: "Brands",  to: "/brands" },
-  { label: "Contact", to: "/contact" },
+  { label: "Brands",   to: "/brands" },
+  { label: "Contact",  to: "/contact" },
 ];
 
 const Navbar = () => {
@@ -26,16 +26,15 @@ const Navbar = () => {
   useEffect(() => { setMobileOpen(false); }, [location]);
 
   return (
-    <header
-      className="fixed top-0 left-0 right-0 z-50 bg-charcoal/95 backdrop-blur-lg shadow-sm border-b border-charcoal/50"
-    >
+    <header className="fixed top-0 left-0 right-0 z-50 bg-charcoal shadow-md border-b border-white/10">
       <div className="container mx-auto flex items-center justify-between h-16 px-4 lg:px-8">
+
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 group">
+        <Link to="/" className="flex items-center gap-2">
           <AaryaLogo />
-          <span className="font-semibold text-primary text-sm lg:text-base leading-tight block visible">
+          <span className="font-semibold text-white text-sm lg:text-base leading-tight">
             Aarya
-            <span className="block text-xs font-normal text-muted-foreground">
+            <span className="block text-xs font-normal text-white/60">
               Surveillance & IT
             </span>
           </span>
@@ -49,8 +48,8 @@ const Navbar = () => {
               to={link.to}
               className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                 location.pathname === link.to
-                  ? "text-primary bg-primary/8"
-                  : "text-muted-foreground hover:text-primary hover:bg-primary/5"
+                  ? "text-secondary font-semibold"
+                  : "text-white/80 hover:text-secondary hover:bg-white/5"
               }`}
             >
               {link.label}
@@ -68,7 +67,7 @@ const Navbar = () => {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden p-2 text-foreground"
+          className="md:hidden p-2 text-white"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
@@ -93,8 +92,8 @@ const Navbar = () => {
                   to={link.to}
                   className={`px-4 py-3 rounded-lg text-lg font-medium transition-colors ${
                     location.pathname === link.to
-                      ? "text-primary bg-primary/5"
-                      : "text-foreground hover:bg-muted"
+                      ? "text-secondary bg-white/10"
+                      : "text-white/80 hover:text-secondary hover:bg-white/10"
                   }`}
                 >
                   {link.label}
