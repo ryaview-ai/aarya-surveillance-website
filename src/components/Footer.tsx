@@ -32,7 +32,7 @@ const Footer = () => (
               { label: "Home",          to: "/" },
               { label: "About Us",      to: "/about" },
               { label: "Our Services",  to: "/services" },
-              { label: "Brand Partners", to: "/brands" },
+              { label: "Brands We Work With", to: "/brands" },
               { label: "Contact",       to: "/contact" },
             ].map((l) => (
               <Link
@@ -97,7 +97,6 @@ const Footer = () => (
       <div className="border-t border-charcoal-foreground/10 mt-10 pt-6 text-center">
         <p className="text-xs opacity-50">
           © 2025 Aarya Surveillance and IT Solutions Pvt. Ltd. All Rights Reserved.
-          &nbsp;·&nbsp; GSTIN: 36ABDCA3268R1Z3
         </p>
       </div>
     </div>
