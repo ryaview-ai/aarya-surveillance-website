@@ -3,7 +3,12 @@ import { Home, Building2, Factory, Landmark, CheckCircle2, ArrowRight } from "lu
 import { motion } from "framer-motion";
 import SectionWrapper from "@/components/SectionWrapper";
 
-const brands = ["Honeywell", "Bosch", "Axis", "Hanwha", "Pelco", "Matrix", "Sparsh"];
+// Curated set shown on Home — full 18 lives on /brands
+const homeBrands = [
+  "Axis", "Honeywell", "Bosch", "Hanwha",
+  "Hikvision", "Dahua", "CP Plus", "Matrix",
+  "Sparsh", "HP", "Dell", "APC by Schneider",
+];
 
 const customerCards = [
   {
@@ -35,7 +40,7 @@ const whyCards = [
   },
   {
     title: "Premium Brand Partnerships",
-    desc: "We work with globally trusted names — Honeywell, Bosch, Axis, Hanwha, Pelco, Matrix, Sparsh — so you get quality products, not compromises.",
+    desc: "We work with globally trusted names — Axis, Honeywell, Bosch, Hanwha, Hikvision, Dahua, CP Plus, Matrix, and more — sourced through authorized distributors.",
   },
   {
     title: "End-to-End Service",
@@ -47,143 +52,108 @@ const whyCards = [
   },
 ];
 
-const stagger = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
-};
-const item = {
-  hidden: { opacity: 0, y: 30 },
+const fadeUp = {
+  hidden: { opacity: 0, y: 16 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
 };
 
 const Index = () => (
   <main>
     {/* ── Hero ── */}
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-charcoal">
-      {/* Animated dot grid */}
-      <motion.div
-        className="absolute inset-0 opacity-[0.07]"
+    <section className="relative min-h-[88vh] flex items-center overflow-hidden bg-charcoal">
+      {/* Static dot grid (no animation) */}
+      <div
+        className="absolute inset-0 opacity-[0.05] pointer-events-none"
         style={{
-          backgroundImage: "radial-gradient(circle, hsl(42 80% 49%) 1px, transparent 1px)",
-          backgroundSize: "28px 28px",
+          backgroundImage: "radial-gradient(circle, hsl(42 55% 60%) 1px, transparent 1px)",
+          backgroundSize: "32px 32px",
         }}
-        animate={{ backgroundPosition: ["0px 0px", "28px 28px"] }}
-        transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
-      />
-      {/* Scan line */}
-      <motion.div
-        className="absolute left-0 right-0 h-px bg-secondary/30 pointer-events-none"
-        style={{ position: "absolute" }}
-        animate={{ top: ["0%", "100%"] }}
-        transition={{ duration: 9, repeat: Infinity, ease: "linear" }}
       />
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10 pt-24 pb-16">
+      <div className="container mx-auto px-4 lg:px-8 relative z-10 pt-28 pb-20">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-3xl"
         >
-          <motion.p
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-secondary font-semibold mb-4 tracking-widest text-xs uppercase"
-          >
+          <p className="text-secondary font-medium mb-5 tracking-[0.18em] text-[11px] uppercase">
             Your Safety. Our Purpose.
-          </motion.p>
-
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-charcoal-foreground leading-tight mb-6">
-            Professional Surveillance & IT Solutions{" "}
-            <span className="text-secondary">for Every Space You Care About</span>
-          </h1>
-
-          <p className="text-base sm:text-lg text-charcoal-foreground/70 max-w-2xl mb-8 leading-relaxed">
-            Whether it's your home, your business, your warehouse, or a public facility —
-            we design and install security systems that actually work.
-            Based in Secunderabad. Serving across Telangana.
           </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 mb-8"
-          >
-            <Link
-              to="/services"
-              className="inline-flex items-center justify-center px-7 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:brightness-110 hover:scale-105 transition-all duration-200"
-            >
-              Explore Our Services
-            </Link>
+          <h1 className="text-3xl sm:text-4xl lg:text-[3.25rem] xl:text-[3.75rem] font-semibold text-charcoal-foreground leading-[1.1] mb-7 tracking-tight">
+            Surveillance &amp; IT solutions, engineered for the spaces that matter.
+          </h1>
+
+          <p className="text-base sm:text-lg text-charcoal-foreground/65 max-w-2xl mb-10 leading-relaxed">
+            Aarya Surveillance designs and installs CCTV, networking, and IT systems for homes,
+            businesses, and institutions. Based in Secunderabad. Serving across Telangana.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-3 mb-10">
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center px-7 py-3 rounded-full bg-secondary text-secondary-foreground font-semibold hover:brightness-110 hover:scale-105 transition-all duration-200 shadow-lg shadow-secondary/20"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-secondary text-secondary-foreground font-semibold hover:brightness-105 transition-all duration-200"
             >
-              Get a Free Consultation
+              Get a Free Site Survey <ArrowRight size={16} />
             </Link>
-          </motion.div>
+            <Link
+              to="/services"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl border border-charcoal-foreground/15 text-charcoal-foreground/85 font-medium hover:border-secondary/50 hover:text-secondary transition-all duration-200"
+            >
+              View our services
+            </Link>
+          </div>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.9 }}
-            className="text-xs text-charcoal-foreground/40 tracking-wide"
-          >
-            Established 2025 · GSTIN Registered · Honest Advice, Always
-          </motion.p>
+          <p className="text-[11px] text-charcoal-foreground/40 tracking-[0.15em] uppercase">
+            Established 2025 · MSME / Udyam Registered · GeM Seller · Honest Advice, Always
+          </p>
         </motion.div>
       </div>
     </section>
 
     {/* ── What Are You Protecting? ── */}
-    <SectionWrapper className="py-20 bg-background">
+    <SectionWrapper className="py-24 bg-background">
       <div className="container mx-auto px-4 lg:px-8">
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-3">
+        <h2 className="text-2xl sm:text-3xl lg:text-[2.25rem] font-semibold text-center mb-3 tracking-tight">
           What Are You Trying to <span className="text-secondary">Protect?</span>
         </h2>
-        <p className="text-center text-muted-foreground mb-12 max-w-xl mx-auto">
+        <p className="text-center text-muted-foreground mb-14 max-w-xl mx-auto">
           We serve every type of space with tailored security solutions.
         </p>
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {customerCards.map((card) => (
             <motion.div
               key={card.title}
-              variants={item}
-              whileHover={{ y: -8, scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 300 }}
-              className="bg-card border border-border rounded-xl p-6 shadow-sm hover:shadow-lg hover:border-secondary/30 transition-all duration-300 group"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={fadeUp}
+              className="bg-card border border-border rounded-xl p-7 transition-colors duration-200 hover:border-secondary/40 group"
             >
-              <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-4 group-hover:bg-secondary/20 transition-colors">
-                <card.icon className="text-secondary" size={24} />
+              <div className="w-11 h-11 rounded-xl bg-secondary/10 flex items-center justify-center mb-5">
+                <card.icon className="text-secondary" size={22} />
               </div>
-              <h3 className="font-semibold text-lg mb-2">{card.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-4">{card.desc}</p>
+              <h3 className="font-semibold text-base mb-2.5">{card.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-5">{card.desc}</p>
               <Link
                 to="/services"
-                className="text-primary text-sm font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all"
+                className="text-primary text-sm font-medium inline-flex items-center gap-1.5"
               >
-                Learn How We Help <ArrowRight size={14} />
+                Learn how we help <ArrowRight size={13} />
               </Link>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </SectionWrapper>
 
     {/* ── Trust Strip ── */}
-    <SectionWrapper className="py-16 bg-muted">
+    <SectionWrapper className="py-20 bg-muted">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="bg-card border border-border rounded-2xl p-8 lg:p-12 flex flex-col lg:flex-row items-center gap-8">
+        <div className="bg-card border border-border rounded-xl p-8 lg:p-12 flex flex-col lg:flex-row items-center gap-10">
           <div className="flex-1">
-            <h3 className="text-xl lg:text-2xl font-bold mb-4">
+            <h3 className="text-xl lg:text-2xl font-semibold mb-4 tracking-tight">
               Security That Fits <span className="text-secondary">Your Life</span>
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-6">
@@ -193,24 +163,24 @@ const Index = () => (
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
+              className="inline-flex items-center gap-2 text-primary font-semibold"
             >
               Talk to us about your space <ArrowRight size={16} />
             </Link>
           </div>
-          <div className="grid grid-cols-2 gap-4 shrink-0">
+          <div className="grid grid-cols-2 gap-3 shrink-0">
             {[
               { value: "2025", label: "Established" },
-              { value: "7", label: "Premium Brands" },
+              { value: "18", label: "Trusted Brands" },
               { value: "4", label: "Service Areas" },
               { value: "24h", label: "Response Time" },
             ].map((stat) => (
               <div
                 key={stat.label}
-                className="bg-primary/5 border border-primary/10 rounded-xl p-4 text-center"
+                className="bg-background border border-border rounded-xl px-5 py-4 text-center min-w-[120px]"
               >
-                <p className="text-2xl font-bold text-primary">{stat.value}</p>
-                <p className="text-xs text-muted-foreground mt-1">{stat.label}</p>
+                <p className="text-2xl font-semibold text-primary tracking-tight">{stat.value}</p>
+                <p className="text-[11px] text-muted-foreground mt-1 tracking-wide uppercase">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -219,92 +189,89 @@ const Index = () => (
     </SectionWrapper>
 
     {/* ── Why Choose Aarya ── */}
-    <SectionWrapper className="py-20 bg-background">
+    <SectionWrapper className="py-24 bg-background">
       <div className="container mx-auto px-4 lg:px-8">
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-12">
+        <h2 className="text-2xl sm:text-3xl lg:text-[2.25rem] font-semibold text-center mb-14 tracking-tight">
           Why Work <span className="text-secondary">With Us?</span>
         </h2>
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto"
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-4xl mx-auto">
           {whyCards.map((card) => (
             <motion.div
               key={card.title}
-              variants={item}
-              whileHover={{ scale: 1.02 }}
-              className="bg-card rounded-xl p-6 border border-border hover:border-secondary/30 hover:shadow-md transition-all duration-300"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={fadeUp}
+              className="bg-card rounded-xl p-7 border border-border transition-colors duration-200 hover:border-secondary/40"
             >
               <div className="flex items-start gap-3 mb-2">
                 <CheckCircle2 className="text-secondary shrink-0 mt-0.5" size={20} />
-                <h3 className="font-semibold">{card.title}</h3>
+                <h3 className="font-semibold text-base">{card.title}</h3>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed pl-8">
                 {card.desc}
               </p>
             </motion.div>
           ))}
-        </motion.div>
-      </div>
-    </SectionWrapper>
-
-    {/* ── Brands Carousel ── */}
-    <SectionWrapper className="py-14 bg-muted overflow-hidden">
-      <div className="container mx-auto px-4 lg:px-8 mb-8">
-        <p className="text-center text-xs font-semibold text-muted-foreground uppercase tracking-widest">
-          Solutions Powered By Globally Trusted Brands
-        </p>
-      </div>
-      <div className="relative">
-        <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-muted to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-muted to-transparent z-10 pointer-events-none" />
-        <div className="flex animate-scroll-left">
-          {[...brands, ...brands, ...brands].map((brand, i) => (
-            <div
-              key={`${brand}-${i}`}
-              className="flex-shrink-0 px-8 py-4 mx-3 bg-background rounded-lg flex items-center justify-center min-w-[160px] border border-border"
-            >
-              <span className="font-bold text-primary text-sm tracking-wide">{brand}</span>
-            </div>
-          ))}
         </div>
       </div>
     </SectionWrapper>
 
+    {/* ── Brands — Static Grid (no marquee) ── */}
+    <SectionWrapper className="py-20 bg-muted">
+      <div className="container mx-auto px-4 lg:px-8">
+        <p className="text-center text-[11px] font-semibold text-muted-foreground uppercase tracking-[0.2em] mb-10">
+          Solutions Powered By Globally Trusted Brands
+        </p>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 max-w-5xl mx-auto">
+          {homeBrands.map((brand) => (
+            <div
+              key={brand}
+              className="px-4 py-5 bg-background rounded-xl border border-border flex items-center justify-center text-center"
+            >
+              <span className="font-semibold text-primary text-sm tracking-tight">{brand}</span>
+            </div>
+          ))}
+        </div>
+        <p className="text-center mt-8">
+          <Link
+            to="/brands"
+            className="inline-flex items-center gap-1.5 text-sm text-primary font-medium hover:text-secondary transition-colors"
+          >
+            View all 18 brands <ArrowRight size={14} />
+          </Link>
+        </p>
+      </div>
+    </SectionWrapper>
+
     {/* ── Honest CTA ── */}
-    <section className="relative py-20 overflow-hidden">
-      <div className="absolute inset-0 bg-charcoal" />
-      <motion.div
-        className="absolute inset-0 opacity-5 pointer-events-none"
+    <section className="relative py-24 overflow-hidden bg-charcoal">
+      <div
+        className="absolute inset-0 opacity-[0.04] pointer-events-none"
         style={{
-          backgroundImage: "radial-gradient(circle, hsl(42 80% 49% / 0.4) 1px, transparent 1px)",
-          backgroundSize: "24px 24px",
+          backgroundImage: "radial-gradient(circle, hsl(42 55% 60%) 1px, transparent 1px)",
+          backgroundSize: "32px 32px",
         }}
-        animate={{ backgroundPosition: ["0px 0px", "24px 24px"] }}
-        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
       />
       <div className="container mx-auto px-4 lg:px-8 text-center max-w-2xl relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
+          variants={fadeUp}
         >
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-charcoal-foreground mb-6">
+          <h2 className="text-2xl sm:text-3xl lg:text-[2.25rem] font-semibold text-charcoal-foreground mb-6 tracking-tight leading-tight">
             We Started in 2025 With One Promise —{" "}
             <span className="text-secondary">To Get Your Security Right.</span>
           </h2>
-          <p className="text-charcoal-foreground/70 mb-8 leading-relaxed">
+          <p className="text-charcoal-foreground/65 mb-10 leading-relaxed">
             Every reliable company had a first project. We'd be honoured if yours is one of
             ours. Reach out — no obligation, no sales pressure, just an honest conversation
             about your needs.
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-secondary text-secondary-foreground font-bold hover:brightness-110 hover:scale-105 transition-all duration-200 shadow-lg shadow-secondary/25"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-secondary text-secondary-foreground font-semibold hover:brightness-105 transition-all duration-200"
           >
             Start the Conversation <ArrowRight size={16} />
           </Link>
