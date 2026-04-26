@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import AaryaLogo from "./AaryaLogo";
 
@@ -12,44 +12,40 @@ const navLinks = [
   { label: "Contact",  to: "/contact" },
 ];
 
+const PHONE_DISPLAY = "+91 93902 84103";
+const PHONE_TEL = "+919390284103";
+
 const Navbar = () => {
-  const [scrolled, setScrolled]     = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => { setMobileOpen(false); }, [location]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-charcoal shadow-md border-b border-white/10">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-charcoal border-b border-white/10">
       <div className="container mx-auto flex items-center justify-between h-16 px-4 lg:px-8">
 
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2.5">
           <AaryaLogo />
-          <span className="font-semibold text-white text-sm lg:text-base leading-tight">
+          <span className="font-semibold text-white text-sm lg:text-[15px] leading-tight tracking-tight">
             Aarya
-            <span className="block text-xs font-normal text-white/60">
-              Surveillance & IT
+            <span className="block text-[11px] font-normal text-white/55 tracking-wide">
+              Surveillance &amp; IT
             </span>
           </span>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-1">
+        <nav className="hidden md:flex items-center gap-0.5">
           {navLinks.map((link) => (
             <Link
               key={link.to}
               to={link.to}
-              className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+              className={`px-3.5 py-2 rounded-md text-[13px] font-medium transition-colors ${
                 location.pathname === link.to
-                  ? "text-secondary font-semibold"
-                  : "text-white/80 hover:text-secondary hover:bg-white/5"
+                  ? "text-secondary"
+                  : "text-white/75 hover:text-white"
               }`}
             >
               {link.label}
@@ -57,13 +53,22 @@ const Navbar = () => {
           ))}
         </nav>
 
-        {/* CTA */}
-        <Link
-          to="/contact"
-          className="hidden md:inline-flex items-center px-5 py-2 rounded-full bg-secondary text-secondary-foreground font-semibold text-sm hover:brightness-110 transition-all shadow-sm"
-        >
-          Talk to Us
-        </Link>
+        {/* Right: phone + CTA */}
+        <div className="hidden md:flex items-center gap-4">
+          <a
+            href={`tel:${PHONE_TEL}`}
+            className="flex items-center gap-2 text-[13px] font-medium text-white/85 hover:text-secondary transition-colors"
+          >
+            <Phone size={14} className="text-secondary" />
+            {PHONE_DISPLAY}
+          </a>
+          <Link
+            to="/contact"
+            className="inline-flex items-center px-4 py-2 rounded-lg bg-secondary text-secondary-foreground font-semibold text-[13px] hover:brightness-105 transition-all"
+          >
+            Talk to Us
+          </Link>
+        </div>
 
         {/* Mobile toggle */}
         <button
@@ -85,12 +90,12 @@ const Navbar = () => {
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
             className="fixed inset-0 top-16 bg-charcoal z-40 flex flex-col p-6 md:hidden"
           >
-            <nav className="flex flex-col gap-2">
+            <nav className="flex flex-col gap-1.5">
               {navLinks.map((link) => (
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={`px-4 py-3 rounded-lg text-lg font-medium transition-colors ${
+                  className={`px-4 py-3 rounded-lg text-base font-medium transition-colors ${
                     location.pathname === link.to
                       ? "text-secondary bg-white/10"
                       : "text-white/80 hover:text-secondary hover:bg-white/10"
@@ -100,10 +105,17 @@ const Navbar = () => {
                 </Link>
               ))}
             </nav>
-            <div className="mt-6">
+            <div className="mt-6 flex flex-col gap-3">
+              <a
+                href={`tel:${PHONE_TEL}`}
+                className="inline-flex items-center justify-center gap-2 w-full px-5 py-3 rounded-lg border border-white/15 text-white font-medium text-base"
+              >
+                <Phone size={16} className="text-secondary" />
+                {PHONE_DISPLAY}
+              </a>
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center w-full px-5 py-3 rounded-full bg-secondary text-secondary-foreground font-semibold text-base"
+                className="inline-flex items-center justify-center w-full px-5 py-3 rounded-lg bg-secondary text-secondary-foreground font-semibold text-base"
               >
                 Talk to Us
               </Link>
