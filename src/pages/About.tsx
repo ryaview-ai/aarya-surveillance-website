@@ -136,13 +136,7 @@ const About = () => (
           <h3 className="font-bold text-lg mb-6">
             Aarya Surveillance and IT Solutions Pvt. Ltd.
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
-            <div className="bg-charcoal-foreground/5 rounded-lg p-4">
-              <p className="text-charcoal-foreground/50 text-xs mb-1">GSTIN</p>
-              <p className="font-mono font-semibold text-secondary text-xs">
-                36ABDCA3268R1Z3
-              </p>
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-md mx-auto">
             <div className="bg-charcoal-foreground/5 rounded-lg p-4">
               <p className="text-charcoal-foreground/50 text-xs mb-1">Incorporated</p>
               <p className="font-semibold">2025</p>
