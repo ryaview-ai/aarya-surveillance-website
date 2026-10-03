@@ -10,57 +10,57 @@ const surveillanceBrands = [
   {
     name: "Axis Communications",
     specialty: "Network Cameras & Access Control",
-    desc: "The pioneer of IP-based network cameras. Axis drives innovation in video surveillance, access control, and network audio with a strong focus on cybersecurity. We are a certified Axis Channel Partner.",
+    desc: "The one surveillance brand we hold a formal partnership with. As a certified Axis Channel Partner we supply Axis hardware directly and support what we sell.",
     tag: "Certified Partner",
     certified: true,
   },
   {
     name: "Honeywell",
-    specialty: "Global Security & Building Management",
-    desc: "A global leader in integrated security, fire detection, and building management systems. Trusted by enterprises and governments worldwide for reliable, scalable solutions.",
-    tag: "Enterprise Grade",
+    specialty: "Security & Building Management",
+    desc: "Sourced to order. We are not a Honeywell partner — we quote, supply and support the units we sell you.",
+    tag: "Sourced to order",
     certified: false,
   },
   {
     name: "Bosch",
     specialty: "Professional Video Security",
-    desc: "German engineering precision applied to professional surveillance. Bosch cameras and systems are renowned for image quality, durability, and long-term reliability in demanding environments.",
-    tag: "German Engineering",
+    desc: "Sourced to order. No formal partnership — we quote, supply and support the units we sell you.",
+    tag: "Sourced to order",
     certified: false,
   },
   {
     name: "Hanwha Vision",
-    specialty: "AI-Powered Camera Systems",
-    desc: "South Korean innovation at its finest. Hanwha Vision leads in AI-integrated cameras with deep analytics capability — from facial recognition to behavioral analysis.",
-    tag: "AI Analytics",
+    specialty: "Camera Systems & Analytics",
+    desc: "Sourced to order. No formal partnership — we quote, supply and support the units we sell you.",
+    tag: "Sourced to order",
     certified: false,
   },
   {
     name: "CP Plus",
-    specialty: "Surveillance for Every Scale",
-    desc: "India's most trusted surveillance brand offering a wide range of cameras, DVRs, and NVRs. CP Plus is a go-to for cost-effective residential and SME deployments.",
-    tag: "Made in India",
+    specialty: "Cameras, DVRs & NVRs",
+    desc: "Sourced to order. Commonly specified on cost-led projects — tell us the model and we'll quote it.",
+    tag: "Sourced to order",
     certified: false,
   },
   {
     name: "Pelco",
     specialty: "Enterprise Video Security",
-    desc: "Built for large-scale, mission-critical deployments. Pelco systems are widely used in airports, stadiums, and critical infrastructure where reliability is non-negotiable.",
-    tag: "Mission Critical",
+    desc: "Sourced to order. No formal partnership — we quote, supply and support the units we sell you.",
+    tag: "Sourced to order",
     certified: false,
   },
   {
     name: "Matrix Comsec",
     specialty: "Access Control & Communication",
-    desc: "A trusted Indian brand delivering integrated access control, time-attendance, and communication solutions built for Indian conditions and requirements.",
-    tag: "Made in India",
+    desc: "Sourced to order. Access control, time-attendance and communication hardware, quoted on request.",
+    tag: "Sourced to order",
     certified: false,
   },
   {
     name: "Sparsh",
-    specialty: "Cost-Effective IP Surveillance",
-    desc: "Reliable and affordable IP surveillance designed for SMEs, residences, and small businesses. Sparsh delivers quality monitoring without the premium price tag.",
-    tag: "Value for Money",
+    specialty: "IP Surveillance",
+    desc: "Sourced to order. Tell us the model and we'll quote it, or say so if we can't get it.",
+    tag: "Sourced to order",
     certified: false,
   },
 ];
@@ -69,32 +69,32 @@ const networkingBrands = [
   {
     name: "Cisco",
     specialty: "Enterprise Networking",
-    desc: "The global standard in enterprise networking. Cisco switches, routers, and wireless solutions power reliable, secure networks for businesses of every scale.",
-    tag: "Industry Standard",
+    desc: "Sourced to order. Switching, routing and wireless quoted against your specification.",
+    tag: "Sourced to order",
   },
   {
     name: "Ubiquiti",
-    specialty: "Scalable Wireless Networks",
-    desc: "Professional-grade wireless and wired networking at competitive price points. Ubiquiti's UniFi ecosystem is ideal for SMEs and multi-site deployments.",
-    tag: "SME Favourite",
+    specialty: "Wireless & Wired Networks",
+    desc: "Sourced to order. Frequently specified on SME and multi-site networks we build.",
+    tag: "Sourced to order",
   },
   {
     name: "D-Link",
-    specialty: "Networking for Every Budget",
-    desc: "Reliable wired and wireless networking solutions spanning home, SME, and enterprise segments. D-Link offers an extensive range with proven performance.",
-    tag: "Versatile Range",
+    specialty: "Networking Hardware",
+    desc: "Sourced to order. Tell us the part number and we'll quote it.",
+    tag: "Sourced to order",
   },
   {
     name: "TP-Link",
-    specialty: "Networking & Smart Devices",
-    desc: "One of the world's leading providers of networking devices. TP-Link delivers dependable switches, access points, and routers suited for residential and commercial use.",
-    tag: "Global Reach",
+    specialty: "Networking Hardware",
+    desc: "Sourced to order. Tell us the part number and we'll quote it.",
+    tag: "Sourced to order",
   },
   {
     name: "Netgear",
     specialty: "Business & Home Networking",
-    desc: "Trusted networking solutions for both home and business environments. Netgear's ProSAFE and Orbi lines are particularly well suited for SME and distributed office setups.",
-    tag: "Proven Reliability",
+    desc: "Sourced to order. Tell us the part number and we'll quote it.",
+    tag: "Sourced to order",
   },
 ];
 
@@ -102,20 +102,20 @@ const itInfrastructureBrands = [
   {
     name: "HP",
     specialty: "Computers, Servers & Printers",
-    desc: "A trusted global brand for business laptops, desktops, workstations, and enterprise servers. HP hardware is a standard choice for corporate IT infrastructure deployments.",
-    tag: "Global Standard",
+    desc: "Sourced to order. Laptops, desktops, workstations and servers quoted against your requirement.",
+    tag: "Sourced to order",
   },
   {
     name: "Dell",
     specialty: "Enterprise Computing & Storage",
-    desc: "Dell's OptiPlex desktops, Latitude laptops, and PowerEdge servers are widely deployed across businesses and institutions requiring dependable, long-lifecycle hardware.",
-    tag: "Enterprise Ready",
+    desc: "Sourced to order. Desktops, laptops and servers quoted against your requirement.",
+    tag: "Sourced to order",
   },
   {
     name: "APC by Schneider Electric",
     specialty: "Power Protection & UPS",
-    desc: "The world's most trusted UPS and power protection brand. APC solutions safeguard IT equipment and surveillance systems from power fluctuations and outages.",
-    tag: "Power Protection",
+    desc: "Sourced to order. UPS and power protection sized to the load you give us.",
+    tag: "Sourced to order",
   },
 ];
 
@@ -213,7 +213,7 @@ const BrandCard = ({ name, specialty, desc, tag, certified = false }: BrandCardP
 
 const Brands = () => (
   <main>
-    <Seo title="Brands We Repair & Supply | Aarya Surveillance Hyderabad" description="Axis, Bosch, Infinova, Vivotek, Honeywell, Hanwha, CP Plus, Pelco and more — brands we repair, and source through authorised distributors across Telangana." path="/brands" />
+    <Seo title="Brands We Repair & Supply | Aarya Surveillance Hyderabad" description="Brands Aarya Surveillance supplies in Hyderabad and Telangana. Certified Axis Channel Partner; Bosch, Honeywell, Hanwha, CP Plus, Pelco, Cisco, HP, Dell and more sourced to order." path="/brands" />
     {/* Hero */}
     <section className="bg-charcoal pt-28 pb-16">
       <div className="container mx-auto px-4 lg:px-8">
@@ -241,13 +241,35 @@ const Brands = () => (
       </div>
     </section>
 
+    {/* ── What "we supply this" actually means ── */}
+    <SectionWrapper className="py-14 bg-muted border-y border-border">
+      <div className="container mx-auto px-4 lg:px-8 max-w-3xl">
+        <h2 className="text-xl sm:text-2xl font-semibold mb-4">
+          What "we supply this" actually means
+        </h2>
+        <p className="text-muted-foreground leading-relaxed mb-4">
+          Axis is the only brand on this page we hold a formal partnership with — we are a
+          certified Axis Channel Partner. Everything else we source to order: you give us
+          the model or the requirement, we quote it, supply it and support what we sold
+          you. We are not an authorised partner or distributor for those brands and we
+          don't claim to be.
+        </p>
+        <p className="text-muted-foreground leading-relaxed">
+          If we can't get something at a price or lead time that makes sense, we'll say so
+          rather than quote you something we can't deliver. This list is also different
+          from the brands we repair, which is wider — repairing a unit you already own
+          carries none of the procurement questions that supplying a new one does.
+        </p>
+      </div>
+    </SectionWrapper>
+
     {/* ── Surveillance ── */}
     <SectionWrapper className="py-20 bg-background">
       <div className="container mx-auto px-4 lg:px-8">
         <SectionHeader
           label="Security & Surveillance"
           title="Cameras, NVRs & Access Control"
-          subtitle="From entry-level residential to enterprise-grade deployments — we work with the brands that matter in the Indian surveillance market."
+          subtitle="Cameras, recorders and access control we supply. Axis is a certified partnership; the rest are sourced to order."
         />
         <motion.div
           variants={stagger}
@@ -269,7 +291,7 @@ const Brands = () => (
         <SectionHeader
           label="Networking"
           title="Switches, Routers & Wireless"
-          subtitle="Reliable wired and wireless networking infrastructure for homes, offices, and multi-site deployments."
+          subtitle="Wired and wireless networking hardware, sourced to order against your specification."
         />
         <motion.div
           variants={stagger}
@@ -291,7 +313,7 @@ const Brands = () => (
         <SectionHeader
           label="IT Infrastructure"
           title="Compute, Storage & Power Protection"
-          subtitle="Hardware essentials for business IT setups — from workstations and servers to UPS systems that keep your infrastructure running through power disruptions."
+          subtitle="Compute, storage and power protection, sourced to order against your requirement."
         />
         <motion.div
           variants={stagger}

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import {
-  Wrench, PackageSearch, ClipboardCheck, ArrowRight, CheckCircle2,
+  Wrench, PackageSearch, ClipboardCheck, ArrowRight,
   AlertTriangle, Layers, Clock, Hammer,
 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -318,27 +318,38 @@ const Index = () => (
 
     {/* ── Why us ── */}
     <SectionWrapper className="py-20 bg-muted">
+      {/* Editorial two-column list rather than another grid of cards — the page
+          has had three card sections by this point and needs a change of pace. */}
       <div className="container mx-auto px-4 lg:px-8">
-        <h2 className="text-2xl sm:text-3xl lg:text-[2.25rem] font-semibold text-center mb-14 tracking-tight">
-          Why Work <span className="text-secondary">With Us?</span>
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-4xl mx-auto">
-          {whyCards.map((card) => (
-            <motion.div
-              key={card.title}
-              initial="hidden" whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }} variants={fadeUp}
-              className="bg-card rounded-xl p-7 border border-border transition-colors duration-200 hover:border-secondary/40"
-            >
-              <div className="flex items-start gap-3 mb-2">
-                <CheckCircle2 className="text-secondary shrink-0 mt-0.5" size={20} />
-                <h3 className="font-semibold text-base">{card.title}</h3>
-              </div>
-              <p className="text-sm text-muted-foreground leading-relaxed pl-8">
-                {card.desc}
-              </p>
-            </motion.div>
-          ))}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 max-w-5xl mx-auto">
+
+          <div className="lg:col-span-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-[2.25rem] font-semibold tracking-tight lg:sticky lg:top-28">
+              Why Work <span className="text-secondary">With Us?</span>
+            </h2>
+          </div>
+
+          <div className="lg:col-span-8">
+            {whyCards.map((card, i) => (
+              <motion.div
+                key={card.title}
+                initial="hidden" whileInView="visible"
+                viewport={{ once: true, margin: "-80px" }} variants={fadeUp}
+                className={`py-7 ${i === 0 ? "" : "border-t border-border"}`}
+              >
+                <div className="flex items-baseline gap-3 mb-2">
+                  <span className="text-secondary text-xs font-semibold tabular-nums shrink-0">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="font-semibold text-lg tracking-tight">{card.title}</h3>
+                </div>
+                <p className="text-muted-foreground leading-relaxed pl-7">
+                  {card.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
         </div>
       </div>
     </SectionWrapper>
