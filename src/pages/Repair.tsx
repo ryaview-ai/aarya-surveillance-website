@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   Wrench, PackageCheck, Search, Truck, ShieldCheck, FileText,
-  AlertTriangle, Layers, Clock, ArrowRight, CheckCircle2,
+  AlertTriangle, Layers, Clock, ArrowRight, CheckCircle2, MapPin,
 } from "lucide-react";
 import SectionWrapper from "@/components/SectionWrapper";
 import Seo from "@/components/Seo";
@@ -29,7 +29,7 @@ const painPoints = [
 ];
 
 const process = [
-  { icon: Truck,        title: "Ship",     desc: "Courier the unit to our lab, or we collect within Hyderabad." },
+  { icon: Truck,        title: "Ship",     desc: "Courier the unit to our lab, we collect within Hyderabad, or we come to you." },
   { icon: Search,       title: "Diagnose", desc: "Full fault analysis with a written diagnostic report." },
   { icon: Wrench,       title: "Repair",   desc: "Component-level repair by trained engineers." },
   { icon: PackageCheck, title: "Return",   desc: "Tested, shipped back, job documented and closed." },
@@ -147,7 +147,7 @@ const Repair = () => (
           <p className="text-secondary font-medium mb-5 tracking-[0.18em] text-[11px] uppercase">
             Multi-Brand Camera Repair · Secunderabad
           </p>
-          <h1 className="text-3xl sm:text-4xl lg:text-[3.25rem] font-semibold text-charcoal-foreground leading-[1.1] mb-6 tracking-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-[3.25rem] font-semibold text-charcoal-foreground leading-[1.2] mb-6 tracking-tight text-balance">
             Every brand. One lab.<br />
             <span className="text-secondary">Cameras repaired, not replaced.</span>
           </h1>
@@ -235,14 +235,28 @@ const Repair = () => (
           ))}
         </div>
 
-        <div className="mt-10 max-w-3xl mx-auto bg-secondary/10 border border-secondary/25 rounded-xl p-6">
-          <div className="flex items-start gap-3">
-            <Clock className="text-secondary shrink-0 mt-0.5" size={18} />
-            <p className="text-sm text-charcoal-foreground/80 leading-relaxed">
-              <strong className="text-charcoal-foreground">Turnaround is typically 10 working days</strong>{" "}
-              from receipt to dispatch. Complex board-level faults can take longer — if
-              that's the case we tell you after diagnosis, before any work begins.
-            </p>
+        <div className="mt-10 max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="bg-secondary/10 border border-secondary/25 rounded-xl p-6">
+            <div className="flex items-start gap-3">
+              <Clock className="text-secondary shrink-0 mt-0.5" size={18} />
+              <p className="text-sm text-charcoal-foreground/80 leading-relaxed">
+                <strong className="text-charcoal-foreground">Turnaround is typically 10 working days</strong>{" "}
+                from receipt to dispatch. Complex board-level faults can take longer — if
+                that's the case we tell you after diagnosis, before any work begins.
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-charcoal-foreground/[0.04] border border-charcoal-foreground/15 rounded-xl p-6">
+            <div className="flex items-start gap-3">
+              <MapPin className="text-secondary shrink-0 mt-0.5" size={18} />
+              <p className="text-sm text-charcoal-foreground/80 leading-relaxed">
+                <strong className="text-charcoal-foreground">Can't send the units to us?</strong>{" "}
+                Where cameras are fixed in place or the site can't go dark, we carry out the
+                repair at your location instead. On-site work is charged over and above the
+                repair itself, and we quote it before we travel.
+              </p>
+            </div>
           </div>
         </div>
       </div>

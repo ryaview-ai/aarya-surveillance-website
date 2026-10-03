@@ -167,7 +167,9 @@ const Index = () => (
             Multi-Brand Camera Repair · Secunderabad
           </p>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-[3.25rem] xl:text-[3.75rem] font-semibold text-charcoal-foreground leading-[1.1] mb-7 tracking-tight">
+          {/* leading-[1.2]: at 1.1 the gold line collides with the line above
+              as soon as it wraps to two lines at narrower desktop widths. */}
+          <h1 className="text-3xl sm:text-4xl lg:text-[3.25rem] xl:text-[3.75rem] font-semibold text-charcoal-foreground leading-[1.2] mb-7 tracking-tight text-balance">
             Every brand. One lab.<br />
             <span className="text-secondary">Cameras repaired, not replaced.</span>
           </h1>

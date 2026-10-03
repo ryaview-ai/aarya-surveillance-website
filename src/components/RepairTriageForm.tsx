@@ -64,7 +64,7 @@ const warrantyOptions = [
 const logisticsOptions = [
   "We'll courier the units to your lab",
   "Need collection — within Hyderabad",
-  "Need a site visit — units are fixed in place",
+  "Need on-site repair — units are fixed in place (charged extra)",
   "Not decided yet",
 ];
 
