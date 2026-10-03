@@ -59,11 +59,33 @@ const Contact = () => {
     if (!formRef.current) return;
     setSubmitting(true);
     setFormError("");
+
+    // Send the same variable set as SmartEnquiryWidget so one EmailJS template
+    // renders both paths. Without `summary`, widget submissions arrive empty.
+    const fd = new FormData(formRef.current);
+    const service = (fd.get("service_needed") as string) || "Not specified";
+    const detail = (fd.get("message") as string) || "No details provided";
+    const summary = [
+      `Service: ${service}`,
+      "",
+      "Details:",
+      detail,
+    ].join("\n");
+
     try {
-      await emailjs.sendForm(
+      await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
-        formRef.current,
+        {
+          customer_name:  fd.get("customer_name"),
+          customer_email: fd.get("customer_email"),
+          customer_phone: fd.get("customer_phone"),
+          customer_city:  "Not provided",
+          customer_type:  "Quick enquiry form",
+          service_needed: service,
+          message:        detail,
+          summary,
+        },
         EMAILJS_PUBLIC_KEY,
       );
       setSubmitted(true);

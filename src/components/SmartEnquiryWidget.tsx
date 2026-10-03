@@ -137,6 +137,9 @@ const SmartEnquiryWidget = () => {
           customer_phone: form.phone,
           customer_city:  form.city || "Not provided",
           customer_type:  customerTypes.find((c) => c.id === form.customerType)?.label ?? "",
+          // Same keys the quick form sends, so one EmailJS template renders both.
+          service_needed: "New system — guided enquiry",
+          message:        summary,
           summary,
         },
         EMAILJS_PUBLIC_KEY,
