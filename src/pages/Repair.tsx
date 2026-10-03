@@ -39,8 +39,6 @@ const repairBrands = [
   { name: "Bosch",     note: null },
   { name: "Infinova",  note: null },
   { name: "Vivotek",   note: null },
-  { name: "Hikvision", note: null },
-  { name: "Dahua",     note: null },
   { name: "Honeywell", note: null },
   { name: "Hanwha",    note: null },
   { name: "CP Plus",   note: null },
@@ -108,9 +106,8 @@ const repairJsonLd = {
     "@type": "OfferCatalog",
     name: "Brands Repaired",
     itemListElement: [
-      "Axis", "Bosch", "Infinova", "Vivotek", "Hikvision", "Dahua",
-      "Honeywell", "Hanwha", "CP Plus", "Pelco", "Uniview", "Panasonic",
-      "Samsung", "Godrej",
+      "Axis", "Bosch", "Infinova", "Vivotek", "Honeywell", "Hanwha",
+      "CP Plus", "Pelco", "Uniview", "Panasonic", "Samsung", "Godrej",
     ].map((b) => ({
       "@type": "Offer",
       itemOffered: { "@type": "Service", name: `${b} camera repair` },
@@ -122,7 +119,7 @@ const Repair = () => (
   <main>
     <Seo
       title="CCTV Camera Repair in Hyderabad & Secunderabad | Multi-Brand Repair Lab"
-      description="Multi-brand CCTV and IP camera repair in Secunderabad, Hyderabad. Axis (including EOL models), Bosch, Infinova, Vivotek, Hikvision, Dahua and more. Written diagnostic report with every repair."
+      description="Multi-brand CCTV and IP camera repair in Secunderabad, Hyderabad. Axis (including EOL models), Bosch, Infinova, Vivotek, Honeywell, Hanwha and more. Written diagnostic report with every repair."
       path="/repair"
       jsonLd={repairJsonLd}
     />

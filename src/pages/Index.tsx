@@ -10,8 +10,8 @@ import Seo from "@/components/Seo";
 /* ─── Data ─────────────────────────────────────────────────────────── */
 
 const repairBrands = [
-  "Axis", "Bosch", "Infinova", "Vivotek", "Hikvision", "Dahua",
-  "Honeywell", "Hanwha", "CP Plus", "Pelco", "Uniview", "Panasonic",
+  "Axis", "Bosch", "Infinova", "Vivotek", "Honeywell", "Hanwha",
+  "CP Plus", "Pelco", "Uniview", "Panasonic", "Samsung", "Godrej",
 ];
 
 const painPoints = [
@@ -142,7 +142,7 @@ const Index = () => (
   <main>
     <Seo
       title="Aarya Surveillance — CCTV Camera Repair & Supply in Secunderabad, Hyderabad"
-      description="Multi-brand CCTV and IP camera repair lab in Secunderabad. Axis, Bosch, Infinova, Vivotek, Hikvision, Dahua and more — including end-of-life models. Equipment supply and AMC across Hyderabad and Telangana."
+      description="Multi-brand CCTV and IP camera repair lab in Secunderabad. Axis, Bosch, Infinova, Vivotek, Honeywell, Hanwha and more — including end-of-life models. Equipment supply and AMC across Hyderabad and Telangana."
       path="/"
       jsonLd={homeJsonLd}
     />

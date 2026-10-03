@@ -29,20 +29,6 @@ const surveillanceBrands = [
     certified: false,
   },
   {
-    name: "Hikvision",
-    specialty: "End-to-End Surveillance Systems",
-    desc: "One of the world's largest video surveillance manufacturers. Hikvision offers a comprehensive range from entry-level to enterprise-grade cameras and NVR systems.",
-    tag: "Market Leader",
-    certified: false,
-  },
-  {
-    name: "Dahua",
-    specialty: "Smart IoT & Video Technology",
-    desc: "A leading solution provider in the global video-centric smart IoT industry. Dahua combines AI and deep learning with their surveillance hardware for intelligent security.",
-    tag: "Smart IoT",
-    certified: false,
-  },
-  {
     name: "Hanwha Vision",
     specialty: "AI-Powered Camera Systems",
     desc: "South Korean innovation at its finest. Hanwha Vision leads in AI-integrated cameras with deep analytics capability — from facial recognition to behavioral analysis.",
@@ -226,7 +212,7 @@ const BrandCard = ({ name, specialty, desc, tag, certified = false }: BrandCardP
 
 const Brands = () => (
   <main>
-    <Seo title="Brands We Repair & Supply | Aarya Surveillance Hyderabad" description="Axis, Bosch, Infinova, Vivotek, Hikvision, Dahua, Honeywell, Hanwha and more — brands we repair, and source through authorised distributors across Telangana." path="/brands" />
+    <Seo title="Brands We Repair & Supply | Aarya Surveillance Hyderabad" description="Axis, Bosch, Infinova, Vivotek, Honeywell, Hanwha, CP Plus, Pelco and more — brands we repair, and source through authorised distributors across Telangana." path="/brands" />
     {/* Hero */}
     <section className="bg-charcoal pt-28 pb-16">
       <div className="container mx-auto px-4 lg:px-8">
