@@ -26,6 +26,15 @@ const brandOptions = [
   "Other / not sure",
 ];
 
+/* The two catch-all options read badly when dropped into a sentence or a
+   subject line ("Camera repair — Mixed — more than one brand"). Shorten
+   them for anywhere the value is used as a phrase rather than a label. */
+const brandPhrase = (brand: string): string => {
+  if (brand === "Mixed — more than one brand") return "mixed brands";
+  if (brand === "Other / not sure") return "brand to be confirmed";
+  return brand;
+};
+
 const faultOptions = [
   "No power — unit completely dead",
   "No image / black screen",
@@ -132,7 +141,7 @@ const RepairTriageForm = () => {
 
     const summary = buildSummary();
     const detail = [
-      `${form.quantity} · ${form.brand}${form.model ? ` · ${form.model}` : ""}`,
+      `${form.quantity} · ${brandPhrase(form.brand)}${form.model ? ` · ${form.model}` : ""}`,
       `Fault: ${form.fault}`,
       `Warranty: ${form.warranty || "Not specified"}`,
       `Logistics: ${form.logistics || "Not specified"}`,
@@ -153,7 +162,7 @@ const RepairTriageForm = () => {
           customer_type:  form.organisation
             ? `Repair triage — ${form.organisation}`
             : "Repair triage",
-          service_needed: `Camera repair — ${form.brand}, ${form.quantity}`,
+          service_needed: `Camera repair · ${brandPhrase(form.brand)} · ${form.quantity}`,
           message:        detail,
           summary,
         },
@@ -185,10 +194,20 @@ const RepairTriageForm = () => {
         <h3 className="font-semibold text-lg mb-2">
           Enquiry received, {form.name.split(" ")[0]}.
         </h3>
+        <div className="inline-flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-xs text-muted-foreground bg-muted/60 border border-border rounded-lg px-3 py-2 mb-4">
+          <span className="font-medium text-foreground">{form.quantity}</span>
+          <span aria-hidden="true">·</span>
+          <span className="font-medium text-foreground">{brandPhrase(form.brand)}</span>
+          {form.model && (
+            <>
+              <span aria-hidden="true">·</span>
+              <span className="font-medium text-foreground">{form.model}</span>
+            </>
+          )}
+        </div>
         <p className="text-muted-foreground text-sm leading-relaxed max-w-md mx-auto mb-5">
-          We've logged {form.quantity.toLowerCase()} of {form.brand} with the fault you
-          described. An engineer will come back within 24 business hours on whether it's
-          repairable — before you spend anything on replacement.
+          An engineer will come back within 24 business hours on whether it's repairable
+          — before you spend anything on replacement.
         </p>
         <div className="flex flex-col gap-1.5 text-sm">
           <a href="tel:+918074591188" className="text-primary font-semibold hover:underline">
