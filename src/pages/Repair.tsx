@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import SectionWrapper from "@/components/SectionWrapper";
 import Seo from "@/components/Seo";
+import RepairTriageForm from "@/components/RepairTriageForm";
 
 /* ─── Data ─────────────────────────────────────────────────────────── */
 
@@ -156,12 +157,12 @@ const Repair = () => (
             them — including end-of-life models the manufacturer has stopped supporting.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
-            <Link
-              to="/contact"
+            <a
+              href="#repair-enquiry"
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-secondary text-secondary-foreground font-semibold hover:brightness-105 transition-all duration-200"
             >
               Get a Repair Quote <ArrowRight size={16} />
-            </Link>
+            </a>
             <a
               href="#brands-we-repair"
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl border border-charcoal-foreground/20 text-charcoal-foreground/90 font-medium hover:border-secondary/50 hover:text-secondary transition-all duration-200"
@@ -352,7 +353,7 @@ const Repair = () => (
     </SectionWrapper>
 
     {/* ── CTA ── */}
-    <section className="relative py-20 bg-charcoal overflow-hidden">
+    <section id="repair-enquiry" className="relative py-20 bg-charcoal overflow-hidden scroll-mt-20">
       <div
         className="absolute inset-0 opacity-[0.04] pointer-events-none"
         style={{
@@ -360,27 +361,59 @@ const Repair = () => (
           backgroundSize: "32px 32px",
         }}
       />
-      <div className="container mx-auto px-4 lg:px-8 text-center max-w-2xl relative z-10">
-        <h2 className="text-2xl sm:text-3xl font-semibold text-charcoal-foreground mb-5 tracking-tight">
-          Got a dead camera on site?
-        </h2>
-        <p className="text-charcoal-foreground/65 mb-9 leading-relaxed">
-          Send us the make and model. We'll tell you whether it's repairable before you
-          spend anything on a replacement.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <Link
-            to="/contact"
-            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-secondary text-secondary-foreground font-semibold hover:brightness-105 transition-all"
-          >
-            Start a Repair Enquiry <ArrowRight size={16} />
-          </Link>
-          <a
-            href="tel:+918074591188"
-            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl border border-charcoal-foreground/20 text-charcoal-foreground/90 font-medium hover:border-secondary/50 hover:text-secondary transition-all"
-          >
-            Call +91 80745 91188
-          </a>
+      <div className="container mx-auto px-4 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-12 items-start max-w-6xl mx-auto">
+
+          {/* Left: the ask */}
+          <div className="lg:col-span-2 lg:pt-2">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-charcoal-foreground mb-5 tracking-tight">
+              Got a dead camera on site?
+            </h2>
+            <p className="text-charcoal-foreground/65 mb-7 leading-relaxed">
+              Tell us the brand, the model and what's wrong. We'll come back on whether
+              it's repairable before you spend anything on a replacement.
+            </p>
+
+            <ul className="space-y-3 mb-8">
+              {[
+                "Written diagnostic report on every job",
+                "Typically 10 working days from receipt to dispatch",
+                "End-of-life models the OEM no longer supports",
+              ].map((line) => (
+                <li key={line} className="flex items-start gap-2.5 text-sm text-charcoal-foreground/70">
+                  <CheckCircle2 size={15} className="text-secondary shrink-0 mt-0.5" />
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="border-t border-charcoal-foreground/10 pt-6">
+              <p className="text-xs uppercase tracking-wider text-charcoal-foreground/45 mb-2.5">
+                Prefer to talk
+              </p>
+              <a
+                href="tel:+918074591188"
+                className="block text-charcoal-foreground font-semibold hover:text-secondary transition-colors"
+              >
+                +91 80745 91188
+              </a>
+              <a
+                href="tel:+918074281188"
+                className="block text-charcoal-foreground font-semibold hover:text-secondary transition-colors mt-1"
+              >
+                +91 80742 81188
+              </a>
+              <p className="text-xs text-charcoal-foreground/45 mt-2">
+                Mon–Fri, 9:30 AM – 5:30 PM IST
+              </p>
+            </div>
+          </div>
+
+          {/* Right: triage form */}
+          <div className="lg:col-span-3 w-full">
+            <RepairTriageForm />
+          </div>
+
         </div>
       </div>
     </section>
