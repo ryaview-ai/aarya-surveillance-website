@@ -145,6 +145,11 @@ const RepairTriageForm = () => {
       `Fault: ${form.fault}`,
       `Warranty: ${form.warranty || "Not specified"}`,
       `Logistics: ${form.logistics || "Not specified"}`,
+      // The notification template renders only Name, Email, Phone, Service and
+      // Message, so organisation and city have to travel inside Message or they
+      // never reach the inbox.
+      form.organisation ? `Organisation: ${form.organisation}` : "",
+      `City / site: ${form.city || "Not provided"}`,
       form.notes ? `Notes: ${form.notes}` : "",
     ]
       .filter(Boolean)
