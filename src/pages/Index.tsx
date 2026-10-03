@@ -157,11 +157,12 @@ const Index = () => (
         }}
       />
       <div className="container mx-auto px-4 lg:px-8 relative z-10 pt-28 pb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="max-w-3xl"
+          className="lg:col-span-7 max-w-3xl"
         >
           <p className="text-secondary font-medium mb-5 tracking-[0.18em] text-[11px] uppercase">
             Multi-Brand Camera Repair · Secunderabad
@@ -200,6 +201,34 @@ const Index = () => (
             Established 2025 · MSME / Udyam Registered · GeM Seller · Honest Advice, Always
           </p>
         </motion.div>
+
+        {/* Illustration, not documentation — labelled as such below the image.
+            Hidden from assistive tech: it carries no information the copy
+            doesn't already state. */}
+        <motion.figure
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+          className="hidden lg:flex lg:col-span-5 flex-col items-center"
+        >
+          <img
+            src="/hero-camera-exploded.webp"
+            srcSet="/hero-camera-exploded-sm.webp 560w, /hero-camera-exploded.webp 1000w"
+            sizes="(min-width: 1280px) 440px, 360px"
+            alt=""
+            aria-hidden="true"
+            width={1000}
+            height={1249}
+            fetchPriority="high"
+            decoding="async"
+            className="w-full max-w-[440px] h-auto select-none pointer-events-none"
+          />
+          <figcaption className="mt-4 text-[11px] text-charcoal-foreground/40 tracking-[0.12em] uppercase text-center">
+            Illustration — exploded view of a typical dome camera
+          </figcaption>
+        </motion.figure>
+
+        </div>
       </div>
     </section>
 
