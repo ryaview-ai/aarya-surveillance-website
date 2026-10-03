@@ -174,26 +174,27 @@ const BrandCard = ({ name, specialty, desc, tag, certified = false }: BrandCardP
       <div className="absolute inset-0 bg-secondary/5 pointer-events-none rounded-2xl" />
     )}
 
-    {/* Tag */}
-    <span
-      className={`absolute top-4 right-4 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full
-        ${certified
-          ? "bg-secondary text-secondary-foreground"
-          : "bg-secondary/15 text-secondary"
-        }`}
-    >
-      {tag}
-    </span>
+    {/* Header row — in normal flow so nothing can overlap at any text length.
+        Certified cards use the shield row as their single indicator; the pill
+        would just repeat it. */}
+    <div className="relative flex items-start justify-between gap-3 mb-4 min-h-[22px]">
+      {certified ? (
+        <div className="flex items-center gap-1.5">
+          <ShieldCheck size={14} className="text-secondary shrink-0" />
+          <span className="text-[11px] font-semibold text-secondary uppercase tracking-wider">
+            Axis Channel Partner
+          </span>
+        </div>
+      ) : (
+        <span aria-hidden="true" />
+      )}
 
-    {/* Certified badge */}
-    {certified && (
-      <div className="flex items-center gap-1.5 mb-3">
-        <ShieldCheck size={14} className="text-secondary" />
-        <span className="text-[11px] font-semibold text-secondary uppercase tracking-wider">
-          Axis Channel Partner
+      {!certified && (
+        <span className="shrink-0 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full bg-secondary/15 text-secondary">
+          {tag}
         </span>
-      </div>
-    )}
+      )}
+    </div>
 
     <h3
       className={`text-xl font-bold mb-1 transition-colors
