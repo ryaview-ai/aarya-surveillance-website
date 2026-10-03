@@ -22,9 +22,16 @@ const surveillanceBrands = [
     certified: false,
   },
   {
-    name: "Bosch",
+    name: "i-PRO",
+    specialty: "Professional IP Cameras & Analytics",
+    desc: "Specified and sourced on request. Formerly Panasonic's security business, now its own company — a strong fit where edge analytics and long-term firmware support matter.",
+    tag: "Sourced on request",
+    certified: false,
+  },
+  {
+    name: "IQSIGHT (Keenfinity / Bosch)",
     specialty: "Professional Video Security",
-    desc: "Specified and sourced on request. A regular choice where image quality and long service life matter more than unit price.",
+    desc: "Specified and sourced on request. The former Bosch video systems business, now trading as IQSIGHT under Keenfinity. A regular choice where image quality and long service life matter more than unit price.",
     tag: "Sourced on request",
     certified: false,
   },
@@ -213,7 +220,7 @@ const BrandCard = ({ name, specialty, desc, tag, certified = false }: BrandCardP
 
 const Brands = () => (
   <main>
-    <Seo title="Brands We Repair & Supply | Aarya Surveillance Hyderabad" description="Multi-brand system integrator in Hyderabad and Telangana. Certified Axis Channel Partner, and solution design and supply across Bosch, Honeywell, Hanwha, CP Plus, Pelco, Cisco, HP, Dell and more." path="/brands" />
+    <Seo title="Brands We Repair & Supply | Aarya Surveillance Hyderabad" description="Multi-brand system integrator in Hyderabad and Telangana. Certified Axis Channel Partner, with solution design and supply across i-PRO, IQSIGHT (formerly Bosch), Honeywell, Hanwha, CP Plus, Pelco, Cisco, HP, Dell and more." path="/brands" />
     {/* Hero */}
     <section className="bg-charcoal pt-28 pb-16">
       <div className="container mx-auto px-4 lg:px-8">
