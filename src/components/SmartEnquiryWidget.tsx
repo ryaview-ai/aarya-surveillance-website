@@ -159,10 +159,10 @@ const SmartEnquiryWidget = () => {
       {/* Header */}
       <div className="bg-primary px-6 py-4">
         <h3 className="text-primary-foreground font-bold text-lg">
-          Tell Us About Your Space
+          Planning a New System
         </h3>
         <p className="text-primary-foreground/60 text-sm mt-0.5">
-          Answer 3 quick questions — we'll prepare the right solution for you
+          A few questions to scope a new or expanded camera setup
         </p>
       </div>
 

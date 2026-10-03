@@ -160,10 +160,11 @@ const Contact = () => {
             {/* Standard contact form */}
             <div>
               <h2 className="text-2xl font-bold mb-2">
-                Quick <span className="text-secondary">Enquiry</span>
+                Repair &amp; <span className="text-secondary">Quick Enquiry</span>
               </h2>
               <p className="text-muted-foreground text-sm mb-6">
-                Short on time? Fill this in and we'll call you back.
+                Got a camera that's failed? Send us the make, model and fault — we'll tell
+                you whether it's repairable before you spend on a replacement.
               </p>
 
               {submitted ? (
@@ -221,21 +222,23 @@ const Contact = () => {
                       className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring"
                     >
                       <option value="">Select a service</option>
-                      <option>CCTV Installation</option>
-                      <option>Networking & IT Infrastructure</option>
+                      <option>Camera Repair — single unit</option>
+                      <option>Camera Repair — multiple units / whole site</option>
+                      <option>Equipment Supply</option>
                       <option>Annual Maintenance Contract (AMC)</option>
-                      <option>AI Video Analytics</option>
+                      <option>Networking & IT Infrastructure</option>
+                      <option>Installation / AI Analytics — enquiry</option>
                       <option>Not sure — need advice</option>
                     </select>
                   </div>
                   <div>
                     <label className="text-xs font-medium text-muted-foreground mb-1 block">
-                      Brief Requirement
+                      Make, Model &amp; Fault — or your requirement
                     </label>
                     <textarea
                       name="message"
                       rows={3}
-                      placeholder="Tell us a little about your space and what you're looking to achieve..."
+                      placeholder="For repairs: camera make, model and what&apos;s wrong (e.g. Axis P3225 — no power, 4 units). Otherwise, tell us about your site."
                       className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring resize-none"
                     />
                   </div>
@@ -257,10 +260,13 @@ const Contact = () => {
             {/* Smart Guided Enquiry Widget */}
             <div>
               <h2 className="text-2xl font-bold mb-2">
-                Not Sure What You <span className="text-secondary">Need?</span>
+                Planning a <span className="text-secondary">New System?</span>
               </h2>
               <p className="text-muted-foreground text-sm mb-6">
-                Answer 3 quick questions and we'll figure out the right security setup for your space — free, no obligations.
+                This one is for sizing a new or expanded camera setup — answer a few
+                questions and we'll scope it. <strong className="text-foreground">For
+                repairs, use the form on the left</strong> — it's quicker and we only need
+                the make, model and fault.
               </p>
               <SmartEnquiryWidget />
             </div>
