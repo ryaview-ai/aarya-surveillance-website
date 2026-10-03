@@ -72,16 +72,22 @@ const Footer = () => (
           <h4 className="font-semibold mb-5 text-secondary text-[13px] tracking-wide uppercase">Contact</h4>
           <div className="flex flex-col gap-3">
             <a
-              href="tel:+919390284103"
+              href="tel:+918074591188"
               className="flex items-center gap-2 text-sm opacity-70 hover:opacity-100 hover:text-secondary transition-all"
             >
-              <Phone size={14} /> +91 93902 84103
+              <Phone size={14} /> +91 80745 91188
             </a>
             <a
-              href="mailto:sm@aaryasurveillance.com"
+              href="tel:+918074281188"
               className="flex items-center gap-2 text-sm opacity-70 hover:opacity-100 hover:text-secondary transition-all"
             >
-              <Mail size={14} /> sm@aaryasurveillance.com
+              <Phone size={14} /> +91 80742 81188
+            </a>
+            <a
+              href="mailto:solutions@aaryasurveillance.com"
+              className="flex items-center gap-2 text-sm opacity-70 hover:opacity-100 hover:text-secondary transition-all"
+            >
+              <Mail size={14} /> solutions@aaryasurveillance.com
             </a>
             <div className="flex items-start gap-2 text-sm opacity-70">
               <MapPin size={14} className="mt-0.5 shrink-0" />

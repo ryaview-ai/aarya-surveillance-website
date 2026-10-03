@@ -12,8 +12,10 @@ const navLinks = [
   { label: "Contact",  to: "/contact" },
 ];
 
-const PHONE_DISPLAY = "+91 93902 84103";
-const PHONE_TEL = "+919390284103";
+const PHONES = [
+  { display: "+91 80745 91188", tel: "+918074591188" },
+  { display: "+91 80742 81188", tel: "+918074281188" },
+];
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -55,13 +57,20 @@ const Navbar = () => {
 
         {/* Right: phone + CTA */}
         <div className="hidden md:flex items-center gap-4">
-          <a
-            href={`tel:${PHONE_TEL}`}
-            className="flex items-center gap-2 text-[13px] font-medium text-white/85 hover:text-secondary transition-colors"
-          >
-            <Phone size={14} className="text-secondary" />
-            {PHONE_DISPLAY}
-          </a>
+          <div className="flex items-center gap-2">
+            <Phone size={14} className="text-secondary shrink-0" />
+            <div className="flex flex-col leading-tight">
+              {PHONES.map((p) => (
+                <a
+                  key={p.tel}
+                  href={`tel:${p.tel}`}
+                  className="text-[12px] font-medium text-white/85 hover:text-secondary transition-colors whitespace-nowrap"
+                >
+                  {p.display}
+                </a>
+              ))}
+            </div>
+          </div>
           <Link
             to="/contact"
             className="inline-flex items-center px-4 py-2 rounded-lg bg-secondary text-secondary-foreground font-semibold text-[13px] hover:brightness-105 transition-all"
@@ -106,13 +115,16 @@ const Navbar = () => {
               ))}
             </nav>
             <div className="mt-6 flex flex-col gap-3">
-              <a
-                href={`tel:${PHONE_TEL}`}
-                className="inline-flex items-center justify-center gap-2 w-full px-5 py-3 rounded-lg border border-white/15 text-white font-medium text-base"
-              >
-                <Phone size={16} className="text-secondary" />
-                {PHONE_DISPLAY}
-              </a>
+              {PHONES.map((p) => (
+                <a
+                  key={p.tel}
+                  href={`tel:${p.tel}`}
+                  className="inline-flex items-center justify-center gap-2 w-full px-5 py-3 rounded-lg border border-white/15 text-white font-medium text-base"
+                >
+                  <Phone size={16} className="text-secondary" />
+                  {p.display}
+                </a>
+              ))}
               <Link
                 to="/contact"
                 className="inline-flex items-center justify-center w-full px-5 py-3 rounded-lg bg-secondary text-secondary-foreground font-semibold text-base"

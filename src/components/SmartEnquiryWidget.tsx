@@ -131,7 +131,7 @@ const SmartEnquiryWidget = () => {
           to_name:      form.name,
           to_email:     form.email,
           from_name:    "Aarya Surveillance",
-          reply_to:     "sm@aaryasurveillance.com",
+          reply_to:     "solutions@aaryasurveillance.com",
           customer_name:  form.name,
           customer_email: form.email,
           customer_phone: form.phone,
@@ -144,7 +144,7 @@ const SmartEnquiryWidget = () => {
       setSubmitted(true);
     } catch (err) {
       console.error("EmailJS error:", err);
-      setError("Something went wrong. Please call us directly at +91-9390284103.");
+      setError("Something went wrong. Please call us directly at +91 80745 91188 or +91 80742 81188.");
     } finally {
       setSending(false);
     }
@@ -476,10 +476,13 @@ const SmartEnquiryWidget = () => {
                 </p>
               </div>
               <div className="flex flex-col gap-1 text-sm">
-                <a href="tel:+919390284103" className="text-primary font-semibold hover:underline">
-                  📞 Call us: +91-9390284103
+                <a href="tel:+918074591188" className="text-primary font-semibold hover:underline">
+                  📞 Call us: +91 80745 91188
                 </a>
-                <a href="https://wa.me/919390284103" className="text-primary font-semibold hover:underline">
+                <a href="tel:+918074281188" className="text-primary font-semibold hover:underline">
+                  📞 Alternate: +91 80742 81188
+                </a>
+                <a href="https://wa.me/918074591188" className="text-primary font-semibold hover:underline">
                   💬 WhatsApp us instead
                 </a>
               </div>

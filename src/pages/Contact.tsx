@@ -13,15 +13,22 @@ const contactInfo = [
   {
     icon: Phone,
     label: "Phone",
-    value: "+91-9390284103",
-    href: "tel:+919390284103",
+    value: "+91 80745 91188",
+    href: "tel:+918074591188",
+    sub: "Mon–Sat, 9 AM – 6 PM IST",
+  },
+  {
+    icon: Phone,
+    label: "Alternate Phone",
+    value: "+91 80742 81188",
+    href: "tel:+918074281188",
     sub: "Mon–Sat, 9 AM – 6 PM IST",
   },
   {
     icon: Mail,
     label: "Email",
-    value: "sm@aaryasurveillance.com",
-    href: "mailto:sm@aaryasurveillance.com",
+    value: "solutions@aaryasurveillance.com",
+    href: "mailto:solutions@aaryasurveillance.com",
     sub: "We reply within 24 hours",
   },
   {
@@ -61,7 +68,7 @@ const Contact = () => {
       setSubmitted(true);
     } catch (err) {
       console.error("EmailJS error:", err);
-      setFormError("Could not send your message. Please call us directly at +91-9390284103.");
+      setFormError("Could not send your message. Please call us directly at +91 80745 91188 or +91 80742 81188.");
     } finally {
       setSubmitting(false);
     }
