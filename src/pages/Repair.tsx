@@ -147,7 +147,7 @@ const Repair = () => (
           <p className="text-secondary font-medium mb-5 tracking-[0.18em] text-[11px] uppercase">
             Multi-Brand Camera Repair · Secunderabad
           </p>
-          <h1 className="text-3xl sm:text-4xl lg:text-[3.25rem] font-semibold text-charcoal-foreground leading-[1.2] mb-6 tracking-tight text-balance">
+          <h1 className="text-3xl/[1.2] sm:text-4xl/[1.2] lg:text-[3.25rem]/[1.2] font-semibold text-charcoal-foreground mb-6 tracking-tight text-balance">
             Every brand. One lab.<br />
             <span className="text-secondary">Cameras repaired, not replaced.</span>
           </h1>

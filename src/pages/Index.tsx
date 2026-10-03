@@ -169,7 +169,7 @@ const Index = () => (
 
           {/* leading-[1.2]: at 1.1 the gold line collides with the line above
               as soon as it wraps to two lines at narrower desktop widths. */}
-          <h1 className="text-3xl sm:text-4xl lg:text-[3.25rem] xl:text-[3.75rem] font-semibold text-charcoal-foreground leading-[1.2] mb-7 tracking-tight text-balance">
+          <h1 className="text-3xl/[1.2] sm:text-4xl/[1.2] lg:text-[3.25rem]/[1.2] xl:text-[3.75rem]/[1.2] font-semibold text-charcoal-foreground mb-7 tracking-tight text-balance">
             Every brand. One lab.<br />
             <span className="text-secondary">Cameras repaired, not replaced.</span>
           </h1>
