@@ -256,7 +256,7 @@ const Brands = () => (
           >
             <div className="grid grid-cols-2 gap-px bg-charcoal-foreground/10 rounded-2xl overflow-hidden border border-charcoal-foreground/10">
               <div className="bg-charcoal p-6">
-                <p className="text-4xl font-semibold text-secondary tabular-nums tracking-tight">16</p>
+                <p className="text-4xl font-semibold text-secondary tabular-nums tracking-tight">17</p>
                 <p className="text-[11px] uppercase tracking-[0.12em] text-charcoal-foreground/50 mt-1.5">
                   Brands we supply
                 </p>

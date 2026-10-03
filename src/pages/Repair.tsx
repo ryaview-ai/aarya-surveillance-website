@@ -286,6 +286,12 @@ const Repair = () => (
                 repair itself, and we quote it before we travel.
               </p>
             </div>
+            <a
+              href="#repair-enquiry"
+              className="mt-4 ml-[30px] inline-flex items-center gap-1.5 text-sm font-semibold text-secondary hover:gap-2.5 transition-all duration-200"
+            >
+              Enquire about on-site repair <ArrowRight size={15} />
+            </a>
           </div>
         </div>
       </div>
