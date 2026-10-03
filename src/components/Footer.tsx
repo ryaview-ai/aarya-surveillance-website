@@ -88,7 +88,9 @@ const Footer = () => (
               className="flex items-center gap-2 text-sm opacity-70 hover:opacity-100 hover:text-secondary transition-all"
             >
               <Mail size={14} className="shrink-0" />
-              <span className="break-all">solutions@aaryasurveillance.com</span>
+              <span className="break-words">
+                solutions@<wbr />aaryasurveillance.com
+              </span>
             </a>
             <div className="flex items-start gap-2 text-sm opacity-70">
               <MapPin size={14} className="mt-0.5 shrink-0" />
