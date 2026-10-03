@@ -221,7 +221,9 @@ const Index = () => (
             height={1249}
             fetchPriority="high"
             decoding="async"
-            className="w-full max-w-[440px] h-auto select-none pointer-events-none"
+            className="w-full max-w-[440px] h-auto select-none pointer-events-none
+              [mask-image:radial-gradient(ellipse_at_center,black_55%,transparent_94%)]
+              [-webkit-mask-image:radial-gradient(ellipse_at_center,black_55%,transparent_94%)]"
           />
           <figcaption className="mt-4 text-[11px] text-charcoal-foreground/40 tracking-[0.12em] uppercase text-center">
             Illustration — exploded view of a typical dome camera

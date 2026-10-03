@@ -224,27 +224,64 @@ const Brands = () => (
     {/* Hero */}
     <section className="bg-charcoal pt-28 pb-16">
       <div className="container mx-auto px-4 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <p className="text-secondary text-xs font-semibold uppercase tracking-widest mb-3">
-            Brands We Work With
-          </p>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal-foreground mb-4">
-            Products We <span className="text-secondary">Believe In</span>
-          </h1>
-          <p className="text-charcoal-foreground/60 text-lg max-w-2xl mb-4">
-            We don't stock every brand — we've chosen partners whose products we can
-            source, install, and support with confidence. These are available through
-            authorized distributors. Not everything. Just the right ones.
-          </p>
-          <p className="text-charcoal-foreground/40 text-sm max-w-xl">
-            Products are sourced through authorized distribution channels. Axis
-            Communications is our only certified channel partnership.
-          </p>
-        </motion.div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-7"
+          >
+            <p className="text-secondary text-xs font-semibold uppercase tracking-widest mb-3">
+              Brands We Work With
+            </p>
+            <h1 className="text-3xl/[1.2] sm:text-4xl/[1.2] lg:text-5xl/[1.2] font-bold text-charcoal-foreground mb-4 text-balance">
+              Any brand.{" "}
+              <span className="text-secondary">The right one for the job.</span>
+            </h1>
+            <p className="text-charcoal-foreground/60 text-lg max-w-2xl">
+              We design the solution first and let the requirement choose the make.
+              Below is what we specify and supply most often — it isn't a limit, and
+              it's a shorter list than the brands we repair.
+            </p>
+          </motion.div>
+
+          {/* Counts rather than a logo wall: a grid of manufacturer logos would
+              imply fourteen partnerships, which is the impression this page
+              deliberately does not give. */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.12 }}
+            className="lg:col-span-5"
+          >
+            <div className="grid grid-cols-2 gap-px bg-charcoal-foreground/10 rounded-2xl overflow-hidden border border-charcoal-foreground/10">
+              <div className="bg-charcoal p-6">
+                <p className="text-4xl font-semibold text-secondary tabular-nums tracking-tight">16</p>
+                <p className="text-[11px] uppercase tracking-[0.12em] text-charcoal-foreground/50 mt-1.5">
+                  Brands we supply
+                </p>
+              </div>
+              <div className="bg-charcoal p-6">
+                <p className="text-4xl font-semibold text-secondary tabular-nums tracking-tight">14</p>
+                <p className="text-[11px] uppercase tracking-[0.12em] text-charcoal-foreground/50 mt-1.5">
+                  Brands we repair
+                </p>
+              </div>
+              <div className="bg-charcoal p-6 col-span-2">
+                <div className="flex items-center gap-2 mb-1.5">
+                  <ShieldCheck size={15} className="text-secondary shrink-0" />
+                  <p className="text-sm font-semibold text-charcoal-foreground">
+                    Certified Axis Channel Partner
+                  </p>
+                </div>
+                <p className="text-[13px] text-charcoal-foreground/50 leading-relaxed">
+                  Our one formal manufacturer partnership. Everything else is specified
+                  and sourced on request.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
 

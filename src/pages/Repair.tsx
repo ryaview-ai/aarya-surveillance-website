@@ -138,11 +138,12 @@ const Repair = () => (
         }}
       />
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="max-w-3xl"
+          className="lg:col-span-7 max-w-3xl"
         >
           <p className="text-secondary font-medium mb-5 tracking-[0.18em] text-[11px] uppercase">
             Multi-Brand Camera Repair · Secunderabad
@@ -171,6 +172,34 @@ const Repair = () => (
             </a>
           </div>
         </motion.div>
+
+        {/* The four steps, stated at the top rather than only halfway down the
+            page. Fills the column with information rather than decoration. */}
+        <motion.ol
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.12 }}
+          className="hidden lg:block lg:col-span-5"
+        >
+          {process.map((step, i) => (
+            <li
+              key={step.title}
+              className={`flex items-start gap-4 py-4 ${i === 0 ? "" : "border-t border-charcoal-foreground/10"}`}
+            >
+              <span className="text-secondary text-xs font-semibold tabular-nums pt-1 shrink-0 w-6">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <div>
+                <p className="font-semibold text-charcoal-foreground text-[15px]">{step.title}</p>
+                <p className="text-sm text-charcoal-foreground/55 leading-relaxed mt-0.5">
+                  {step.desc}
+                </p>
+              </div>
+            </li>
+          ))}
+        </motion.ol>
+
+        </div>
       </div>
     </section>
 

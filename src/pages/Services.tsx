@@ -126,22 +126,52 @@ const Services = () => (
     {/* Hero */}
     <section className="bg-charcoal pt-28 pb-16">
       <div className="container mx-auto px-4 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <p className="text-secondary text-xs font-semibold uppercase tracking-widest mb-3">
-            Our Services
-          </p>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal-foreground mb-3">
-            What We <span className="text-secondary">Offer</span>
-          </h1>
-          <p className="text-charcoal-foreground/60 text-lg max-w-2xl">
-            Repair is what we do most of, and what we do best. Below is every service we
-            offer — clearly marked by what we deliver today and what we're still building.
-          </p>
-        </motion.div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-7"
+          >
+            <p className="text-secondary text-xs font-semibold uppercase tracking-widest mb-3">
+              Our Services
+            </p>
+            <h1 className="text-3xl/[1.2] sm:text-4xl/[1.2] lg:text-5xl/[1.2] font-bold text-charcoal-foreground mb-3 text-balance">
+              What We <span className="text-secondary">Offer</span>
+            </h1>
+            <p className="text-charcoal-foreground/60 text-lg max-w-2xl">
+              Repair is what we do most of, and what we do best. Below is every service we
+              offer — clearly marked by what we deliver today and what we're still building.
+            </p>
+          </motion.div>
+
+          {/* The honest status list, stated up front rather than discovered by
+              scrolling. Built from the same data as the sections below. */}
+          <motion.ul
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.12 }}
+            className="hidden lg:block lg:col-span-5"
+          >
+            {services.map((service, i) => (
+              <li
+                key={service.title}
+                className={`flex items-center justify-between gap-5 py-3.5 ${i === 0 ? "" : "border-t border-charcoal-foreground/10"}`}
+              >
+                <span className="text-[15px] text-charcoal-foreground/85">{service.title}</span>
+                <span
+                  className={`shrink-0 text-[10px] font-semibold uppercase tracking-[0.1em] px-2.5 py-1 rounded-full ${
+                    service.status === "live"
+                      ? "bg-secondary/15 text-secondary"
+                      : "bg-charcoal-foreground/10 text-charcoal-foreground/50"
+                  }`}
+                >
+                  {service.status === "live" ? "Today" : "Building"}
+                </span>
+              </li>
+            ))}
+          </motion.ul>
+        </div>
       </div>
     </section>
 
