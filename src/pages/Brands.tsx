@@ -10,57 +10,57 @@ const surveillanceBrands = [
   {
     name: "Axis Communications",
     specialty: "Network Cameras & Access Control",
-    desc: "The one surveillance brand we hold a formal partnership with. As a certified Axis Channel Partner we supply Axis hardware directly and support what we sell.",
+    desc: "A certified Axis Channel Partner. We design, supply and support Axis network cameras, access control and network audio directly.",
     tag: "Certified Partner",
     certified: true,
   },
   {
     name: "Honeywell",
     specialty: "Security & Building Management",
-    desc: "Sourced to order. We are not a Honeywell partner — we quote, supply and support the units we sell you.",
-    tag: "Sourced to order",
+    desc: "Specified and sourced on request. Useful where surveillance sits alongside fire, access and building management on one site.",
+    tag: "Sourced on request",
     certified: false,
   },
   {
     name: "Bosch",
     specialty: "Professional Video Security",
-    desc: "Sourced to order. No formal partnership — we quote, supply and support the units we sell you.",
-    tag: "Sourced to order",
+    desc: "Specified and sourced on request. A regular choice where image quality and long service life matter more than unit price.",
+    tag: "Sourced on request",
     certified: false,
   },
   {
     name: "Hanwha Vision",
     specialty: "Camera Systems & Analytics",
-    desc: "Sourced to order. No formal partnership — we quote, supply and support the units we sell you.",
-    tag: "Sourced to order",
+    desc: "Specified and sourced on request. Suits designs that need on-camera analytics rather than analytics bolted on later.",
+    tag: "Sourced on request",
     certified: false,
   },
   {
     name: "CP Plus",
     specialty: "Cameras, DVRs & NVRs",
-    desc: "Sourced to order. Commonly specified on cost-led projects — tell us the model and we'll quote it.",
-    tag: "Sourced to order",
+    desc: "Specified and sourced on request. Where budget drives the design, we will size a CP Plus system properly rather than undersell a premium one.",
+    tag: "Sourced on request",
     certified: false,
   },
   {
     name: "Pelco",
     specialty: "Enterprise Video Security",
-    desc: "Sourced to order. No formal partnership — we quote, supply and support the units we sell you.",
-    tag: "Sourced to order",
+    desc: "Specified and sourced on request. Built for large estates and mission-critical sites where downtime carries a real cost.",
+    tag: "Sourced on request",
     certified: false,
   },
   {
     name: "Matrix Comsec",
     specialty: "Access Control & Communication",
-    desc: "Sourced to order. Access control, time-attendance and communication hardware, quoted on request.",
-    tag: "Sourced to order",
+    desc: "Specified and sourced on request. Access control, time-attendance and communication designed for Indian site requirements.",
+    tag: "Sourced on request",
     certified: false,
   },
   {
     name: "Sparsh",
     specialty: "IP Surveillance",
-    desc: "Sourced to order. Tell us the model and we'll quote it, or say so if we can't get it.",
-    tag: "Sourced to order",
+    desc: "Specified and sourced on request. A sensible fit for smaller sites that still want IP rather than analogue.",
+    tag: "Sourced on request",
     certified: false,
   },
 ];
@@ -69,32 +69,32 @@ const networkingBrands = [
   {
     name: "Cisco",
     specialty: "Enterprise Networking",
-    desc: "Sourced to order. Switching, routing and wireless quoted against your specification.",
-    tag: "Sourced to order",
+    desc: "Specified and sourced on request. Switching, routing and wireless designed around the camera load the network has to carry.",
+    tag: "Sourced on request",
   },
   {
     name: "Ubiquiti",
     specialty: "Wireless & Wired Networks",
-    desc: "Sourced to order. Frequently specified on SME and multi-site networks we build.",
-    tag: "Sourced to order",
+    desc: "Specified and sourced on request. A frequent choice on SME and multi-site networks where one controller has to cover several buildings.",
+    tag: "Sourced on request",
   },
   {
     name: "D-Link",
     specialty: "Networking Hardware",
-    desc: "Sourced to order. Tell us the part number and we'll quote it.",
-    tag: "Sourced to order",
+    desc: "Specified and sourced on request. Switching and wireless for straightforward office and residential deployments.",
+    tag: "Sourced on request",
   },
   {
     name: "TP-Link",
     specialty: "Networking Hardware",
-    desc: "Sourced to order. Tell us the part number and we'll quote it.",
-    tag: "Sourced to order",
+    desc: "Specified and sourced on request. Dependable access points and switches where the requirement is simple and the budget is tight.",
+    tag: "Sourced on request",
   },
   {
     name: "Netgear",
     specialty: "Business & Home Networking",
-    desc: "Sourced to order. Tell us the part number and we'll quote it.",
-    tag: "Sourced to order",
+    desc: "Specified and sourced on request. Suits distributed offices and smaller business networks.",
+    tag: "Sourced on request",
   },
 ];
 
@@ -102,20 +102,20 @@ const itInfrastructureBrands = [
   {
     name: "HP",
     specialty: "Computers, Servers & Printers",
-    desc: "Sourced to order. Laptops, desktops, workstations and servers quoted against your requirement.",
-    tag: "Sourced to order",
+    desc: "Specified and sourced on request. Laptops, desktops, workstations and servers sized to the workload, not to the invoice.",
+    tag: "Sourced on request",
   },
   {
     name: "Dell",
     specialty: "Enterprise Computing & Storage",
-    desc: "Sourced to order. Desktops, laptops and servers quoted against your requirement.",
-    tag: "Sourced to order",
+    desc: "Specified and sourced on request. Long-lifecycle hardware for sites that need the same machine supportable in five years.",
+    tag: "Sourced on request",
   },
   {
     name: "APC by Schneider Electric",
     specialty: "Power Protection & UPS",
-    desc: "Sourced to order. UPS and power protection sized to the load you give us.",
-    tag: "Sourced to order",
+    desc: "Specified and sourced on request. UPS and power protection sized to the actual load, including the recorder and switch stack.",
+    tag: "Sourced on request",
   },
 ];
 
@@ -213,7 +213,7 @@ const BrandCard = ({ name, specialty, desc, tag, certified = false }: BrandCardP
 
 const Brands = () => (
   <main>
-    <Seo title="Brands We Repair & Supply | Aarya Surveillance Hyderabad" description="Brands Aarya Surveillance supplies in Hyderabad and Telangana. Certified Axis Channel Partner; Bosch, Honeywell, Hanwha, CP Plus, Pelco, Cisco, HP, Dell and more sourced to order." path="/brands" />
+    <Seo title="Brands We Repair & Supply | Aarya Surveillance Hyderabad" description="Multi-brand system integrator in Hyderabad and Telangana. Certified Axis Channel Partner, and solution design and supply across Bosch, Honeywell, Hanwha, CP Plus, Pelco, Cisco, HP, Dell and more." path="/brands" />
     {/* Hero */}
     <section className="bg-charcoal pt-28 pb-16">
       <div className="container mx-auto px-4 lg:px-8">
@@ -245,20 +245,21 @@ const Brands = () => (
     <SectionWrapper className="py-14 bg-muted border-y border-border">
       <div className="container mx-auto px-4 lg:px-8 max-w-3xl">
         <h2 className="text-xl sm:text-2xl font-semibold mb-4">
-          What "we supply this" actually means
+          Brand-agnostic by design
         </h2>
         <p className="text-muted-foreground leading-relaxed mb-4">
-          Axis is the only brand on this page we hold a formal partnership with — we are a
-          certified Axis Channel Partner. Everything else we source to order: you give us
-          the model or the requirement, we quote it, supply it and support what we sold
-          you. We are not an authorised partner or distributor for those brands and we
-          don't claim to be.
+          We are a multi-brand system integrator. The design comes first — what the site
+          actually needs, what it has to integrate with, what the budget will carry — and
+          the brand follows from that. We can specify and source across every make on this
+          page, and plenty that aren't, rather than fitting your requirement around one
+          manufacturer's catalogue.
         </p>
         <p className="text-muted-foreground leading-relaxed">
-          If we can't get something at a price or lead time that makes sense, we'll say so
-          rather than quote you something we can't deliver. This list is also different
-          from the brands we repair, which is wider — repairing a unit you already own
-          carries none of the procurement questions that supplying a new one does.
+          Axis is the one brand we also hold a certified channel partnership with. If a
+          particular make doesn't suit the requirement, or can't be had at a price or lead
+          time that works, we'll tell you that instead of quoting it anyway. The brands we
+          repair are a wider list again — servicing a unit you already own carries none of
+          the procurement questions that supplying a new one does.
         </p>
       </div>
     </SectionWrapper>
@@ -269,7 +270,7 @@ const Brands = () => (
         <SectionHeader
           label="Security & Surveillance"
           title="Cameras, NVRs & Access Control"
-          subtitle="Cameras, recorders and access control we supply. Axis is a certified partnership; the rest are sourced to order."
+          subtitle="Cameras, recorders and access control we design with and supply across every major make."
         />
         <motion.div
           variants={stagger}
@@ -291,7 +292,7 @@ const Brands = () => (
         <SectionHeader
           label="Networking"
           title="Switches, Routers & Wireless"
-          subtitle="Wired and wireless networking hardware, sourced to order against your specification."
+          subtitle="Wired and wireless networking designed around what the site and the camera estate actually need."
         />
         <motion.div
           variants={stagger}
@@ -313,7 +314,7 @@ const Brands = () => (
         <SectionHeader
           label="IT Infrastructure"
           title="Compute, Storage & Power Protection"
-          subtitle="Compute, storage and power protection, sourced to order against your requirement."
+          subtitle="Compute, storage and power protection specified to the workload and the load it has to carry."
         />
         <motion.div
           variants={stagger}
