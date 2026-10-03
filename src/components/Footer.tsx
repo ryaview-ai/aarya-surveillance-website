@@ -30,6 +30,7 @@ const Footer = () => (
           <nav className="flex flex-col gap-2.5">
             {[
               { label: "Home",                 to: "/" },
+              { label: "Camera Repair",        to: "/repair" },
               { label: "About Us",             to: "/about" },
               { label: "Our Services",         to: "/services" },
               { label: "Brands We Work With",  to: "/brands" },
@@ -51,17 +52,17 @@ const Footer = () => (
           <h4 className="font-semibold mb-5 text-secondary text-[13px] tracking-wide uppercase">Services</h4>
           <nav className="flex flex-col gap-2.5">
             {[
-              "CCTV Installation",
-              "Networking & IT",
-              "Annual Maintenance (AMC)",
-              "AI Video Analytics",
+              { label: "Multi-Brand Camera Repair", to: "/repair" },
+              { label: "Equipment Supply",          to: "/brands" },
+              { label: "Annual Maintenance (AMC)",  to: "/services" },
+              { label: "Networking & IT",           to: "/services" },
             ].map((s) => (
               <Link
-                key={s}
-                to="/services"
+                key={s.label}
+                to={s.to}
                 className="text-sm opacity-70 hover:opacity-100 hover:text-secondary transition-all"
               >
-                {s}
+                {s.label}
               </Link>
             ))}
           </nav>

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle2 } from "lucide-react";
 import SectionWrapper from "@/components/SectionWrapper";
+import Seo from "@/components/Seo";
 import SmartEnquiryWidget from "@/components/SmartEnquiryWidget";
 
 const EMAILJS_SERVICE_ID  = "service_fio6dfl";
@@ -76,6 +77,7 @@ const Contact = () => {
 
   return (
     <main>
+      <Seo title="Contact Aarya Surveillance | CCTV Repair Enquiry, Secunderabad" description="Get a CCTV camera repair quote in Secunderabad and Hyderabad. Call +91 80745 91188 or send your camera make and model for an honest assessment." path="/contact" />
       {/* Hero */}
       <section className="bg-charcoal pt-28 pb-16">
         <div className="container mx-auto px-4 lg:px-8">

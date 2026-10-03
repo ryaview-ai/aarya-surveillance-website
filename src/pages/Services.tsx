@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Camera, Network, Wrench, Brain, ArrowRight, Home, Building2, Factory, Landmark } from "lucide-react";
+import { Network, Wrench, PackageSearch, ClipboardCheck, Hammer, ArrowRight, Home, Building2, Factory, Landmark } from "lucide-react";
 import SectionWrapper from "@/components/SectionWrapper";
+import Seo from "@/components/Seo";
 
 const segments = [
   { icon: Home,      label: "Residential" },
@@ -12,80 +13,97 @@ const segments = [
 
 const services = [
   {
-    id: "cctv",
-    icon: Camera,
-    title: "CCTV & Surveillance Installation",
-    tagline: "See everything. Miss nothing.",
-    desc: "We start by understanding your space — not by pushing a package. Whether you need 2 cameras or 200, indoors or outdoors, fixed or PTZ, we design a layout that actually covers your blind spots. Every camera positioned with purpose.",
+    id: "repair",
+    icon: Wrench,
+    title: "Multi-Brand Camera Repair",
+    tagline: "Our core service.",
+    status: "live",
+    desc: "Component-level repair for CCTV and IP cameras of any make — including end-of-life models the manufacturer has stopped supporting. Your OEM services only their own brand; we take in the rest. Every unit gets a written fault diagnostic before any work begins.",
     features: [
-      "HD & 4K IP Cameras",
-      "PTZ (Pan-Tilt-Zoom) Systems",
-      "Indoor & Outdoor Coverage",
-      "Night Vision & IR Cameras",
-      "NVR / DVR Setup",
-      "Mobile App Remote Viewing",
-      "Perimeter & Boundary Security",
-      "Multi-site Installation",
+      "IP & Network Cameras",
+      "PTZ Motor, Zoom & Drive Faults",
+      "Dome & Bullet Cameras",
+      "End-of-Life (EOL) Models",
+      "Power & PoE Faults",
+      "Image Sensor & Optics",
+      "IR Illuminator Failure",
+      "Board-Level Component Repair",
+    ],
+    segments: ["Commercial", "Industrial", "Government"],
+  },
+  {
+    id: "supply",
+    icon: PackageSearch,
+    title: "Equipment Supply",
+    tagline: "The right kit, honestly specified.",
+    status: "live",
+    desc: "Cameras, recorders, switches, storage and IT hardware sourced through authorised distributors. We assess your site first and tell you what actually fits — including when repairing what you already own is the better call.",
+    features: [
+      "IP & Analogue Cameras",
+      "NVR / DVR Systems",
+      "PoE Switches & Network Gear",
+      "Storage & Server Hardware",
+      "UPS & Power Protection",
+      "Structured Cabling Material",
+      "Replacement Parts",
+      "Multi-Brand Sourcing",
     ],
     segments: ["Residential", "Commercial", "Industrial", "Government"],
-    color: "bg-blue-500/10 text-blue-600",
+  },
+  {
+    id: "amc",
+    icon: ClipboardCheck,
+    title: "Annual Maintenance Contracts (AMC)",
+    tagline: "One vendor for a mixed estate.",
+    status: "live",
+    desc: "Most AMC providers cover the brand they sold you. We cover the whole estate whatever mix it contains — scheduled health checks, priority response, and documented incident reports. One vendor, one invoice, no finger-pointing.",
+    features: [
+      "Scheduled Preventive Maintenance",
+      "Priority Response",
+      "Multi-Brand Coverage",
+      "Camera Cleaning & Calibration",
+      "Firmware & Software Updates",
+      "Remote Diagnostics",
+      "Incident Reports & Logs",
+      "Renewal Reminders",
+    ],
+    segments: ["Commercial", "Industrial", "Government"],
   },
   {
     id: "networking",
     icon: Network,
     title: "Networking & IT Infrastructure",
-    tagline: "Good surveillance needs a solid backbone.",
-    desc: "The best cameras are only as good as the network behind them. We handle structured cabling, NVR/DVR connectivity, cloud storage integration, and LAN/WAN configuration — so your system is fast, stable, and future-ready from day one.",
+    tagline: "The backbone behind the cameras.",
+    status: "live",
+    desc: "Structured cabling, NVR connectivity, PoE switching and LAN configuration — the groundwork that decides whether a camera estate is stable or permanently troublesome.",
     features: [
       "Structured Cabling & CAT6",
       "LAN / WAN Configuration",
-      "Network Video Recorder Setup",
-      "Cloud Storage Integration",
+      "NVR / DVR Connectivity",
       "PoE Switch Installation",
       "Wireless Network Setup",
+      "Storage Integration",
       "VPN & Remote Access",
       "Network Security Basics",
     ],
     segments: ["Commercial", "Industrial", "Government"],
-    color: "bg-green-500/10 text-green-600",
   },
   {
-    id: "amc",
-    icon: Wrench,
-    title: "Annual Maintenance Contracts (AMC)",
-    tagline: "Installing it was step one. Keeping it working is where we shine.",
-    desc: "The camera you installed today needs to work perfectly on day 365 too. Our AMC plans include scheduled health checks, rapid on-site response, remote diagnostics, and proactive maintenance — so you're never left with a blind system when it matters most.",
+    id: "installation",
+    icon: Hammer,
+    title: "Turnkey Installation & AI Video Analytics",
+    tagline: "Being straight with you: we're building toward this.",
+    status: "building",
+    desc: "We are growing into full turnkey installation and AI-based video analytics — intrusion detection, LPR, people counting and the rest. We have not yet delivered these at scale, and we are not going to claim otherwise. If you need a proven installation partner today, tell us and we will say so plainly rather than take the job and learn on your site.",
     features: [
-      "Scheduled Preventive Maintenance",
-      "Rapid On-site Response",
-      "Remote Diagnostics & Monitoring",
-      "Camera Cleaning & Calibration",
-      "Firmware & Software Updates",
-      "Priority Support Line",
-      "Incident Reports & Logs",
-      "Renewal Reminders",
-    ],
-    segments: ["Residential", "Commercial", "Industrial", "Government"],
-    color: "bg-orange-500/10 text-orange-600",
-  },
-  {
-    id: "ai",
-    icon: Brain,
-    title: "AI-Powered Video Analytics",
-    tagline: "Your cameras should work for you, not just record.",
-    desc: "Modern surveillance is active intelligence, not passive recording. We configure AI-based analytics that turn your cameras into smart security tools — detecting, alerting, and reporting in real time, so you always know what's happening.",
-    features: [
-      "People Counting & Crowd Analysis",
-      "Intrusion Detection & Alerts",
+      "Full site survey & system design",
+      "End-to-end installation & commissioning",
+      "Intrusion detection & alerting",
       "License Plate Recognition (LPR)",
-      "Facial Recognition-Ready Systems",
-      "Heat Mapping & Zone Analytics",
-      "Loitering Detection",
-      "Real-time Push Notifications",
-      "Dashboard & Reporting",
+      "People counting & zone analytics",
+      "Dashboard & reporting",
     ],
     segments: ["Commercial", "Industrial", "Government"],
-    color: "bg-purple-500/10 text-purple-600",
   },
 ];
 
@@ -94,12 +112,17 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.08 } },
 };
 const item = {
-  hidden: { opacity: 0, x: -10 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.4 } },
+  hidden: { x: -8 },
+  visible: { x: 0, transition: { duration: 0.4 } },
 };
 
 const Services = () => (
   <main>
+    <Seo
+      title="Camera Repair, Supply & AMC Services | Aarya Surveillance Secunderabad"
+      description="Multi-brand CCTV camera repair, equipment supply, AMC and networking services in Secunderabad and Hyderabad. Honest about what we deliver today and what we're still building."
+      path="/services"
+    />
     {/* Hero */}
     <section className="bg-charcoal pt-28 pb-16">
       <div className="container mx-auto px-4 lg:px-8">
@@ -115,8 +138,8 @@ const Services = () => (
             What We <span className="text-secondary">Offer</span>
           </h1>
           <p className="text-charcoal-foreground/60 text-lg max-w-2xl">
-            Four focused services. What we do, we do thoroughly — from site assessment
-            to final handover.
+            Repair is what we do most of, and what we do best. Below is every service we
+            offer — clearly marked by what we deliver today and what we're still building.
           </p>
         </motion.div>
       </div>
@@ -133,10 +156,19 @@ const Services = () => (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Left */}
             <div className={idx % 2 !== 0 ? "lg:order-2" : ""}>
-              <div className={`w-14 h-14 rounded-xl ${service.color} flex items-center justify-center mb-5`}>
+              <div className="w-14 h-14 rounded-xl bg-secondary/10 text-secondary flex items-center justify-center mb-5">
                 <service.icon size={26} />
               </div>
-              <p className="text-secondary text-xs font-semibold uppercase tracking-widest mb-2">
+              <div className="flex flex-wrap items-center gap-2 mb-3">
+                <span className={`text-[10px] font-semibold uppercase tracking-wide px-2.5 py-1 rounded-full ${
+                  service.status === "live"
+                    ? "bg-secondary/15 text-secondary-foreground"
+                    : "bg-muted-foreground/10 text-muted-foreground"
+                }`}>
+                  {service.status === "live" ? "Available now" : "Building toward this"}
+                </span>
+              </div>
+              <p className="text-secondary text-[13px] font-semibold mb-2">
                 {service.tagline}
               </p>
               <h2 className="text-2xl sm:text-3xl font-bold mb-5">{service.title}</h2>
@@ -162,7 +194,7 @@ const Services = () => (
                 to="/contact"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-secondary text-secondary-foreground font-semibold hover:brightness-110 transition-all"
               >
-                Enquire About This Service <ArrowRight size={15} />
+                {service.status === "live" ? "Enquire About This Service" : "Ask Where We Stand"} <ArrowRight size={15} />
               </Link>
             </div>
 

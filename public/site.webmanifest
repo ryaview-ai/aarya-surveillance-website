@@ -1,0 +1,11 @@
+{
+  "name": "Aarya Surveillance & IT Solutions",
+  "short_name": "Aarya",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#1a203a",
+  "background_color": "#1a203a",
+  "display": "standalone"
+}

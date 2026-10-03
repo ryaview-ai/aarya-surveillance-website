@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Shield, Heart, Star, Eye } from "lucide-react";
 import SectionWrapper from "@/components/SectionWrapper";
+import Seo from "@/components/Seo";
 
 const values = [
   { icon: Shield, title: "Trust",               desc: "Every recommendation we make is one we'd make for our own family." },
@@ -14,12 +15,13 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.1 } },
 };
 const item = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
+  hidden: { y: 18 },
+  visible: { y: 0, transition: { duration: 0.45, ease: "easeOut" as const } },
 };
 
 const About = () => (
   <main>
+    <Seo title="About Aarya Surveillance | CCTV Repair Company in Secunderabad" description="Aarya Surveillance and IT Solutions Pvt. Ltd. — a Secunderabad camera repair and surveillance company established in 2025. MSME/Udyam registered, GeM seller." path="/about" />
     {/* Hero */}
     <section className="relative bg-charcoal pt-28 pb-16 overflow-hidden">
       <motion.div

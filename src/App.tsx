@@ -9,6 +9,7 @@ import WhatsAppButton from "./components/WhatsAppButton";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
+import Repair from "./pages/Repair";
 import Brands from "./pages/Brands";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
@@ -31,6 +32,7 @@ const App = () => (
       <Routes>
         <Route path="/"        element={<Index />} />
         <Route path="/about"   element={<About />} />
+        <Route path="/repair"   element={<Repair />} />
         <Route path="/services" element={<Services />} />
         <Route path="/brands"  element={<Brands />} />
         <Route path="/contact" element={<Contact />} />

@@ -1,67 +1,154 @@
 import { Link } from "react-router-dom";
-import { Home, Building2, Factory, Landmark, CheckCircle2, ArrowRight } from "lucide-react";
+import {
+  Wrench, PackageSearch, ClipboardCheck, ArrowRight, CheckCircle2,
+  AlertTriangle, Layers, Clock, Hammer,
+} from "lucide-react";
 import { motion } from "framer-motion";
 import SectionWrapper from "@/components/SectionWrapper";
+import Seo from "@/components/Seo";
 
-// Curated set shown on Home — full 18 lives on /brands
-const homeBrands = [
-  "Axis", "Honeywell", "Bosch", "Hanwha",
-  "Hikvision", "Dahua", "CP Plus", "Matrix",
-  "Sparsh", "HP", "Dell", "APC by Schneider",
+/* ─── Data ─────────────────────────────────────────────────────────── */
+
+const repairBrands = [
+  "Axis", "Bosch", "Infinova", "Vivotek", "Hikvision", "Dahua",
+  "Honeywell", "Hanwha", "CP Plus", "Pelco", "Uniview", "Panasonic",
 ];
 
-const customerCards = [
+const painPoints = [
   {
-    icon: Home,
-    title: "Home & Family",
-    desc: "Worried about your home when you're away? We set up smart camera systems that let you watch over what matters most — right from your phone. Simple, reliable, affordable.",
+    icon: AlertTriangle,
+    title: "Your OEM won't touch other brands",
+    desc: "An authorised vendor services their own make. The rest of your campus is your problem.",
   },
   {
-    icon: Building2,
-    title: "Your Business",
-    desc: "Theft, unauthorized access, and blind spots cost businesses every day. We design surveillance systems tailored to your office, retail space, or multi-branch operation.",
+    icon: Layers,
+    title: "Mixed estate, no single owner",
+    desc: "Several brands on one site means several vendors and nobody accountable end to end.",
   },
   {
-    icon: Factory,
-    title: "Industrial Facilities",
-    desc: "Large premises need large-scale thinking. From perimeter cameras to AI-based intrusion alerts — we help you cover every corner without gaps.",
+    icon: Clock,
+    title: "Downtime is a compliance gap",
+    desc: "Every hour a camera is dark is a blind spot on your floor and an exposure on your audit.",
+  },
+];
+
+const services = [
+  {
+    icon: Wrench,
+    title: "Multi-Brand Camera Repair",
+    status: "Core service",
+    live: true,
+    desc: "Component-level repair for IP, PTZ, dome and bullet cameras — any make, including end-of-life models the manufacturer no longer supports. Written diagnostic on every job.",
+    to: "/repair",
+    cta: "See how repair works",
   },
   {
-    icon: Landmark,
-    title: "Government & Public Spaces",
-    desc: "Public safety requires reliable, scalable infrastructure. We understand compliance needs and deliver systems built for long-term dependability.",
+    icon: PackageSearch,
+    title: "Equipment Supply",
+    status: "Core service",
+    live: true,
+    desc: "Cameras, recorders, switches and IT hardware sourced through authorised distributors. Honest recommendations on what actually fits your site — and when repair beats replacement.",
+    to: "/brands",
+    cta: "Brands we work with",
+  },
+  {
+    icon: ClipboardCheck,
+    title: "Annual Maintenance (AMC)",
+    status: "Core service",
+    live: true,
+    desc: "Scheduled health checks and priority response across your whole camera estate, whatever mix of brands it contains. One vendor, one invoice.",
+    to: "/services",
+    cta: "AMC details",
+  },
+  {
+    icon: Hammer,
+    title: "Installation & AI Analytics",
+    status: "Building toward this",
+    live: false,
+    desc: "We're growing into full turnkey installation and AI video analytics. We're not claiming a track record we haven't built yet — if you need these today, we'll tell you straight and point you to someone who can.",
+    to: "/services",
+    cta: "Where we stand",
   },
 ];
 
 const whyCards = [
   {
-    title: "We're New — and That's Our Advantage",
-    desc: "Fresh company means fresh thinking, full attention to each client, and zero complacency. You're not a number to us.",
+    title: "Repair before replace",
+    desc: "A working camera you already own beats a new one you didn't need. We tell you when a unit is worth saving — and when it genuinely isn't.",
   },
   {
-    title: "Premium Brand Partnerships",
-    desc: "We work with globally trusted names — Axis, Honeywell, Bosch, Hanwha, Hikvision, Dahua, CP Plus, Matrix, and more — sourced through authorized distributors.",
+    title: "Brand-agnostic by design",
+    desc: "We're not defending one manufacturer's territory. If it's a CCTV camera, it comes into the lab on its own merits.",
   },
   {
-    title: "End-to-End Service",
-    desc: "From your first call to final installation and beyond — one team, one point of contact, no handoffs.",
+    title: "Documented, not verbal",
+    desc: "Written diagnostic before work starts. Job reports on completion. Nothing rests on a phone call nobody can produce later.",
   },
   {
-    title: "Your Problem First, Product Second",
-    desc: "We assess your space honestly before recommending anything. The right fit, not the most expensive one.",
+    title: "Your problem first, product second",
+    desc: "We assess honestly before recommending anything. The right fit, not the biggest invoice.",
   },
 ];
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 16 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
+const homeJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://aaryasurveillance.com/#business",
+  name: "Aarya Surveillance and Information Technology Solutions Private Limited",
+  alternateName: "Aarya Surveillance",
+  description:
+    "Multi-brand CCTV and IP camera repair, equipment supply and AMC services in Secunderabad and Hyderabad, Telangana.",
+  url: "https://aaryasurveillance.com",
+  telephone: "+91-80745-91188",
+  email: "solutions@aaryasurveillance.com",
+  foundingDate: "2025",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Sangmitra Apts No.402, H.No.10-3-1/2/402, Maredpally",
+    addressLocality: "Secunderabad",
+    addressRegion: "Telangana",
+    postalCode: "500026",
+    addressCountry: "IN",
+  },
+  areaServed: [
+    { "@type": "City", name: "Hyderabad" },
+    { "@type": "City", name: "Secunderabad" },
+    { "@type": "State", name: "Telangana" },
+  ],
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      opens: "09:00",
+      closes: "18:00",
+    },
+  ],
+  knowsAbout: [
+    "CCTV camera repair", "IP camera repair", "PTZ camera repair",
+    "End-of-life camera repair", "Video surveillance maintenance",
+  ],
 };
+
+// Transform-only reveal: content is never hidden, so it stays readable if
+// JS is slow or the viewport observer never fires.
+const fadeUp = {
+  hidden: { y: 14 },
+  visible: { y: 0, transition: { duration: 0.45, ease: "easeOut" as const } },
+};
+
+/* ─── Page ─────────────────────────────────────────────────────────── */
 
 const Index = () => (
   <main>
+    <Seo
+      title="Aarya Surveillance — CCTV Camera Repair & Supply in Secunderabad, Hyderabad"
+      description="Multi-brand CCTV and IP camera repair lab in Secunderabad. Axis, Bosch, Infinova, Vivotek, Hikvision, Dahua and more — including end-of-life models. Equipment supply and AMC across Hyderabad and Telangana."
+      path="/"
+      jsonLd={homeJsonLd}
+    />
+
     {/* ── Hero ── */}
     <section className="relative min-h-[88vh] flex items-center overflow-hidden bg-charcoal">
-      {/* Static dot grid (no animation) */}
       <div
         className="absolute inset-0 opacity-[0.05] pointer-events-none"
         style={{
@@ -69,7 +156,6 @@ const Index = () => (
           backgroundSize: "32px 32px",
         }}
       />
-
       <div className="container mx-auto px-4 lg:px-8 relative z-10 pt-28 pb-20">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -78,69 +164,121 @@ const Index = () => (
           className="max-w-3xl"
         >
           <p className="text-secondary font-medium mb-5 tracking-[0.18em] text-[11px] uppercase">
-            Your Safety. Our Purpose.
+            Multi-Brand Camera Repair · Secunderabad
           </p>
 
           <h1 className="text-3xl sm:text-4xl lg:text-[3.25rem] xl:text-[3.75rem] font-semibold text-charcoal-foreground leading-[1.1] mb-7 tracking-tight">
-            Surveillance &amp; IT solutions, engineered for the spaces that matter.
+            Every brand. One lab.<br />
+            <span className="text-secondary">Cameras repaired, not replaced.</span>
           </h1>
 
-          <p className="text-base sm:text-lg text-charcoal-foreground/65 max-w-2xl mb-10 leading-relaxed">
-            Aarya Surveillance designs and installs CCTV, networking, and IT systems for homes,
-            businesses, and institutions. Based in Secunderabad. Serving across Telangana.
+          <p className="text-base sm:text-lg text-charcoal-foreground/70 max-w-2xl mb-10 leading-relaxed">
+            Aarya Surveillance repairs CCTV and IP cameras of any make — including
+            end-of-life models the manufacturer has dropped. We also supply equipment and
+            run AMC contracts across mixed-brand estates. Based in Secunderabad, serving
+            Hyderabad and Telangana.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 mb-10">
             <Link
-              to="/contact"
+              to="/repair"
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-secondary text-secondary-foreground font-semibold hover:brightness-105 transition-all duration-200"
             >
-              Get a Free Site Survey <ArrowRight size={16} />
+              Get a Camera Repaired <ArrowRight size={16} />
             </Link>
             <Link
-              to="/services"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl border border-charcoal-foreground/15 text-charcoal-foreground/85 font-medium hover:border-secondary/50 hover:text-secondary transition-all duration-200"
+              to="/contact"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl border border-charcoal-foreground/20 text-charcoal-foreground/90 font-medium hover:border-secondary/50 hover:text-secondary transition-all duration-200"
             >
-              View our services
+              Talk to us
             </Link>
           </div>
 
-          <p className="text-[11px] text-charcoal-foreground/40 tracking-[0.15em] uppercase">
+          <p className="text-[11px] text-charcoal-foreground/55 tracking-[0.15em] uppercase">
             Established 2025 · MSME / Udyam Registered · GeM Seller · Honest Advice, Always
           </p>
         </motion.div>
       </div>
     </section>
 
-    {/* ── What Are You Protecting? ── */}
-    <SectionWrapper className="py-24 bg-background">
+    {/* ── The gap we fill ── */}
+    <SectionWrapper className="py-20 bg-background">
       <div className="container mx-auto px-4 lg:px-8">
         <h2 className="text-2xl sm:text-3xl lg:text-[2.25rem] font-semibold text-center mb-3 tracking-tight">
-          What Are You Trying to <span className="text-secondary">Protect?</span>
+          Why Mixed Estates Go <span className="text-secondary">Unserviced</span>
         </h2>
         <p className="text-center text-muted-foreground mb-14 max-w-xl mx-auto">
-          We serve every type of space with tailored security solutions.
+          The gap isn't technical. It's commercial — and it leaves cameras dark.
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {customerCards.map((card) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {painPoints.map((p) => (
             <motion.div
-              key={card.title}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
-              variants={fadeUp}
-              className="bg-card border border-border rounded-xl p-7 transition-colors duration-200 hover:border-secondary/40 group"
+              key={p.title}
+              initial="hidden" whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }} variants={fadeUp}
+              className="bg-card border border-border rounded-xl p-7"
             >
               <div className="w-11 h-11 rounded-xl bg-secondary/10 flex items-center justify-center mb-5">
-                <card.icon className="text-secondary" size={22} />
+                <p.icon className="text-secondary" size={22} />
               </div>
-              <h3 className="font-semibold text-base mb-2.5">{card.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-5">{card.desc}</p>
+              <h3 className="font-semibold text-base mb-2.5">{p.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+        <p className="text-center mt-10">
+          <Link
+            to="/repair"
+            className="inline-flex items-center gap-1.5 text-sm text-primary font-semibold hover:text-secondary transition-colors"
+          >
+            See how our repair process works <ArrowRight size={14} />
+          </Link>
+        </p>
+      </div>
+    </SectionWrapper>
+
+    {/* ── What we do ── */}
+    <SectionWrapper className="py-20 bg-muted">
+      <div className="container mx-auto px-4 lg:px-8">
+        <h2 className="text-2xl sm:text-3xl lg:text-[2.25rem] font-semibold text-center mb-3 tracking-tight">
+          What We <span className="text-secondary">Actually Do</span>
+        </h2>
+        <p className="text-center text-muted-foreground mb-14 max-w-xl mx-auto">
+          Three services we deliver today — and one we're honest about still building.
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-4xl mx-auto">
+          {services.map((s) => (
+            <motion.div
+              key={s.title}
+              initial="hidden" whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }} variants={fadeUp}
+              className={`rounded-xl p-7 border transition-colors duration-200 ${
+                s.live
+                  ? "bg-card border-border hover:border-secondary/40"
+                  : "bg-card/60 border-dashed border-border"
+              }`}
+            >
+              <div className="flex items-center justify-between mb-5">
+                <div className="w-11 h-11 rounded-xl bg-secondary/10 flex items-center justify-center">
+                  <s.icon className="text-secondary" size={22} />
+                </div>
+                <span
+                  className={`text-[10px] font-semibold uppercase tracking-wide px-2.5 py-1 rounded-full ${
+                    s.live
+                      ? "bg-secondary/15 text-secondary-foreground"
+                      : "bg-muted-foreground/10 text-muted-foreground"
+                  }`}
+                >
+                  {s.status}
+                </span>
+              </div>
+              <h3 className="font-semibold text-base mb-2.5">{s.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-5">{s.desc}</p>
               <Link
-                to="/services"
-                className="text-primary text-sm font-medium inline-flex items-center gap-1.5"
+                to={s.to}
+                className="text-primary text-sm font-medium inline-flex items-center gap-1.5 hover:text-secondary transition-colors"
               >
-                Learn how we help <ArrowRight size={13} />
+                {s.cta} <ArrowRight size={13} />
               </Link>
             </motion.div>
           ))}
@@ -148,48 +286,38 @@ const Index = () => (
       </div>
     </SectionWrapper>
 
-    {/* ── Trust Strip ── */}
-    <SectionWrapper className="py-20 bg-muted">
+    {/* ── Brands repaired ── */}
+    <SectionWrapper className="py-20 bg-background">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="bg-card border border-border rounded-xl p-8 lg:p-12 flex flex-col lg:flex-row items-center gap-10">
-          <div className="flex-1">
-            <h3 className="text-xl lg:text-2xl font-semibold mb-4 tracking-tight">
-              Security That Fits <span className="text-secondary">Your Life</span>
-            </h3>
-            <p className="text-muted-foreground leading-relaxed mb-6">
-              We believe professional surveillance shouldn't be complicated or expensive.
-              Whether you're a homeowner wanting peace of mind or a business owner protecting
-              your livelihood — we make it simple, honest, and done right the first time.
-            </p>
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 text-primary font-semibold"
+        <p className="text-center text-[11px] font-semibold text-muted-foreground uppercase tracking-[0.2em] mb-4">
+          Brands We Repair
+        </p>
+        <p className="text-center text-muted-foreground text-sm mb-10 max-w-lg mx-auto">
+          Regardless of where the unit was bought or who installed it.
+        </p>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 max-w-5xl mx-auto">
+          {repairBrands.map((brand) => (
+            <div
+              key={brand}
+              className="px-4 py-5 bg-card rounded-xl border border-border flex items-center justify-center text-center"
             >
-              Talk to us about your space <ArrowRight size={16} />
-            </Link>
-          </div>
-          <div className="grid grid-cols-2 gap-3 shrink-0">
-            {[
-              { value: "2025", label: "Established" },
-              { value: "18", label: "Trusted Brands" },
-              { value: "4", label: "Service Areas" },
-              { value: "24h", label: "Response Time" },
-            ].map((stat) => (
-              <div
-                key={stat.label}
-                className="bg-background border border-border rounded-xl px-5 py-4 text-center min-w-[120px]"
-              >
-                <p className="text-2xl font-semibold text-primary tracking-tight">{stat.value}</p>
-                <p className="text-[11px] text-muted-foreground mt-1 tracking-wide uppercase">{stat.label}</p>
-              </div>
-            ))}
-          </div>
+              <span className="font-semibold text-primary text-sm tracking-tight">{brand}</span>
+            </div>
+          ))}
         </div>
+        <p className="text-center mt-8">
+          <Link
+            to="/repair"
+            className="inline-flex items-center gap-1.5 text-sm text-primary font-medium hover:text-secondary transition-colors"
+          >
+            Full repair brand list <ArrowRight size={14} />
+          </Link>
+        </p>
       </div>
     </SectionWrapper>
 
-    {/* ── Why Choose Aarya ── */}
-    <SectionWrapper className="py-24 bg-background">
+    {/* ── Why us ── */}
+    <SectionWrapper className="py-20 bg-muted">
       <div className="container mx-auto px-4 lg:px-8">
         <h2 className="text-2xl sm:text-3xl lg:text-[2.25rem] font-semibold text-center mb-14 tracking-tight">
           Why Work <span className="text-secondary">With Us?</span>
@@ -198,10 +326,8 @@ const Index = () => (
           {whyCards.map((card) => (
             <motion.div
               key={card.title}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
-              variants={fadeUp}
+              initial="hidden" whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }} variants={fadeUp}
               className="bg-card rounded-xl p-7 border border-border transition-colors duration-200 hover:border-secondary/40"
             >
               <div className="flex items-start gap-3 mb-2">
@@ -217,34 +343,7 @@ const Index = () => (
       </div>
     </SectionWrapper>
 
-    {/* ── Brands — Static Grid (no marquee) ── */}
-    <SectionWrapper className="py-20 bg-muted">
-      <div className="container mx-auto px-4 lg:px-8">
-        <p className="text-center text-[11px] font-semibold text-muted-foreground uppercase tracking-[0.2em] mb-10">
-          Solutions Powered By Globally Trusted Brands
-        </p>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 max-w-5xl mx-auto">
-          {homeBrands.map((brand) => (
-            <div
-              key={brand}
-              className="px-4 py-5 bg-background rounded-xl border border-border flex items-center justify-center text-center"
-            >
-              <span className="font-semibold text-primary text-sm tracking-tight">{brand}</span>
-            </div>
-          ))}
-        </div>
-        <p className="text-center mt-8">
-          <Link
-            to="/brands"
-            className="inline-flex items-center gap-1.5 text-sm text-primary font-medium hover:text-secondary transition-colors"
-          >
-            View all 18 brands <ArrowRight size={14} />
-          </Link>
-        </p>
-      </div>
-    </SectionWrapper>
-
-    {/* ── Honest CTA ── */}
+    {/* ── CTA ── */}
     <section className="relative py-24 overflow-hidden bg-charcoal">
       <div
         className="absolute inset-0 opacity-[0.04] pointer-events-none"
@@ -255,19 +354,16 @@ const Index = () => (
       />
       <div className="container mx-auto px-4 lg:px-8 text-center max-w-2xl relative z-10">
         <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeUp}
+          initial="hidden" whileInView="visible"
+          viewport={{ once: true }} variants={fadeUp}
         >
           <h2 className="text-2xl sm:text-3xl lg:text-[2.25rem] font-semibold text-charcoal-foreground mb-6 tracking-tight leading-tight">
-            We Started in 2025 With One Promise —{" "}
-            <span className="text-secondary">To Get Your Security Right.</span>
+            Before you replace it,{" "}
+            <span className="text-secondary">let us look at it.</span>
           </h2>
           <p className="text-charcoal-foreground/65 mb-10 leading-relaxed">
-            Every reliable company had a first project. We'd be honoured if yours is one of
-            ours. Reach out — no obligation, no sales pressure, just an honest conversation
-            about your needs.
+            Send us the make and model of the camera that's failed. We'll tell you whether
+            it's worth repairing — and if it isn't, we'll say so.
           </p>
           <Link
             to="/contact"

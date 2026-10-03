@@ -6,6 +6,7 @@ import AaryaLogo from "./AaryaLogo";
 
 const navLinks = [
   { label: "Home",     to: "/" },
+  { label: "Repair",   to: "/repair" },
   { label: "About",    to: "/about" },
   { label: "Services", to: "/services" },
   { label: "Brands",   to: "/brands" },

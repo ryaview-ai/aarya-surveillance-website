@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, ExternalLink, ShieldCheck } from "lucide-react";
 import SectionWrapper from "@/components/SectionWrapper";
+import Seo from "@/components/Seo";
 
 // ─── DATA ────────────────────────────────────────────────────────────────────
 
@@ -139,8 +140,8 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.08 } },
 };
 const item = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
+  hidden: { y: 20 },
+  visible: { y: 0, transition: { duration: 0.45, ease: "easeOut" as const } },
 };
 
 // ─── SUB-COMPONENTS ──────────────────────────────────────────────────────────
@@ -225,6 +226,7 @@ const BrandCard = ({ name, specialty, desc, tag, certified = false }: BrandCardP
 
 const Brands = () => (
   <main>
+    <Seo title="Brands We Repair & Supply | Aarya Surveillance Hyderabad" description="Axis, Bosch, Infinova, Vivotek, Hikvision, Dahua, Honeywell, Hanwha and more — brands we repair, and source through authorised distributors across Telangana." path="/brands" />
     {/* Hero */}
     <section className="bg-charcoal pt-28 pb-16">
       <div className="container mx-auto px-4 lg:px-8">

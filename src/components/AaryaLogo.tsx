@@ -1,5 +1,5 @@
-// Place your logo file at: public/logo.jpg
-// It will be accessible as /logo.jpg
+// Navbar/footer logo. Source art is public/logo.jpg (1024px);
+// public/logo-96.png is the downscaled copy actually served.
 
 const AaryaLogo = ({
   className = "",
@@ -12,8 +12,12 @@ const AaryaLogo = ({
 
   return (
     <img
-      src="/logo.jpg"
-      alt="Aarya Surveillance Logo"
+      src="/logo-96.png"
+      alt="Aarya Surveillance"
+      width={96}
+      height={96}
+      loading="eager"
+      decoding="async"
       className={`${dim} object-contain rounded-sm ${className}`}
     />
   );
