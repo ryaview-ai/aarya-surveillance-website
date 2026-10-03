@@ -10,8 +10,8 @@ import Seo from "@/components/Seo";
 /* ─── Data ─────────────────────────────────────────────────────────── */
 
 const repairBrands = [
-  "Axis", "Bosch", "Infinova", "Vivotek", "Honeywell", "Hanwha",
-  "CP Plus", "Pelco", "Uniview", "Panasonic", "Samsung", "Godrej",
+  "Axis", "Bosch", "Infinova", "Vivotek", "Hikvision", "Dahua",
+  "Honeywell", "Hanwha", "CP Plus", "Pelco", "Uniview", "Panasonic",
 ];
 
 const painPoints = [
@@ -142,7 +142,7 @@ const Index = () => (
   <main>
     <Seo
       title="Aarya Surveillance — CCTV Camera Repair & Supply in Secunderabad, Hyderabad"
-      description="Multi-brand CCTV and IP camera repair lab in Secunderabad. Axis, Bosch, Infinova, Vivotek, Honeywell, Hanwha and more — including end-of-life models. Equipment supply and AMC across Hyderabad and Telangana."
+      description="Multi-brand CCTV and IP camera repair lab in Secunderabad. Axis, Bosch, Infinova, Vivotek, Hikvision, Dahua and more — including end-of-life models. Equipment supply and AMC across Hyderabad and Telangana."
       path="/"
       jsonLd={homeJsonLd}
     />
@@ -293,7 +293,7 @@ const Index = () => (
           Brands We Repair
         </p>
         <p className="text-center text-muted-foreground text-sm mb-10 max-w-lg mx-auto">
-          Regardless of where the unit was bought or who installed it.
+          We service what you already own, regardless of who sold or installed it.
         </p>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 max-w-5xl mx-auto">
           {repairBrands.map((brand) => (

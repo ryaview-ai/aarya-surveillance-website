@@ -39,6 +39,8 @@ const repairBrands = [
   { name: "Bosch",     note: null },
   { name: "Infinova",  note: null },
   { name: "Vivotek",   note: null },
+  { name: "Hikvision", note: null },
+  { name: "Dahua",     note: null },
   { name: "Honeywell", note: null },
   { name: "Hanwha",    note: null },
   { name: "CP Plus",   note: null },
@@ -106,8 +108,9 @@ const repairJsonLd = {
     "@type": "OfferCatalog",
     name: "Brands Repaired",
     itemListElement: [
-      "Axis", "Bosch", "Infinova", "Vivotek", "Honeywell", "Hanwha",
-      "CP Plus", "Pelco", "Uniview", "Panasonic", "Samsung", "Godrej",
+      "Axis", "Bosch", "Infinova", "Vivotek", "Hikvision", "Dahua",
+      "Honeywell", "Hanwha", "CP Plus", "Pelco", "Uniview", "Panasonic",
+      "Samsung", "Godrej",
     ].map((b) => ({
       "@type": "Offer",
       itemOffered: { "@type": "Service", name: `${b} camera repair` },
@@ -119,7 +122,7 @@ const Repair = () => (
   <main>
     <Seo
       title="CCTV Camera Repair in Hyderabad & Secunderabad | Multi-Brand Repair Lab"
-      description="Multi-brand CCTV and IP camera repair in Secunderabad, Hyderabad. Axis (including EOL models), Bosch, Infinova, Vivotek, Honeywell, Hanwha and more. Written diagnostic report with every repair."
+      description="Multi-brand CCTV and IP camera repair in Secunderabad, Hyderabad. Axis (including EOL models), Bosch, Infinova, Vivotek, Hikvision, Dahua and more. Written diagnostic report with every repair."
       path="/repair"
       jsonLd={repairJsonLd}
     />
@@ -269,7 +272,19 @@ const Repair = () => (
             </div>
           ))}
         </div>
-        <p className="text-center text-sm text-muted-foreground mt-8">
+        <div className="max-w-2xl mx-auto mt-10 bg-muted border border-border rounded-xl p-5">
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            <strong className="text-foreground">Repairing is not supplying.</strong> This
+            list covers units already installed on your site — we service what you own,
+            whoever sold it to you. It is a different list from the brands we supply, which
+            is narrower and follows Indian procurement rules.{" "}
+            <Link to="/brands" className="text-primary font-medium hover:text-secondary transition-colors">
+              See what we supply
+            </Link>
+            .
+          </p>
+        </div>
+        <p className="text-center text-sm text-muted-foreground mt-6">
           Brand not listed? Send us the model number — we'll tell you honestly whether we
           can repair it.
         </p>
