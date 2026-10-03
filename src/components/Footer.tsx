@@ -75,19 +75,20 @@ const Footer = () => (
               href="tel:+918074591188"
               className="flex items-center gap-2 text-sm opacity-70 hover:opacity-100 hover:text-secondary transition-all"
             >
-              <Phone size={14} /> +91 80745 91188
+              <Phone size={14} className="shrink-0" /> +91 80745 91188
             </a>
             <a
               href="tel:+918074281188"
               className="flex items-center gap-2 text-sm opacity-70 hover:opacity-100 hover:text-secondary transition-all"
             >
-              <Phone size={14} /> +91 80742 81188
+              <Phone size={14} className="shrink-0" /> +91 80742 81188
             </a>
             <a
               href="mailto:solutions@aaryasurveillance.com"
               className="flex items-center gap-2 text-sm opacity-70 hover:opacity-100 hover:text-secondary transition-all"
             >
-              <Mail size={14} /> solutions@aaryasurveillance.com
+              <Mail size={14} className="shrink-0" />
+              <span className="break-all">solutions@aaryasurveillance.com</span>
             </a>
             <div className="flex items-start gap-2 text-sm opacity-70">
               <MapPin size={14} className="mt-0.5 shrink-0" />
