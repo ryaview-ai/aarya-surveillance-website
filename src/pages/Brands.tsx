@@ -268,16 +268,25 @@ const Brands = () => (
                 </p>
               </div>
               <div className="bg-charcoal p-6 col-span-2">
-                <div className="flex items-center gap-2 mb-1.5">
-                  <ShieldCheck size={15} className="text-secondary shrink-0" />
-                  <p className="text-sm font-semibold text-charcoal-foreground">
-                    Certified Axis Channel Partner
-                  </p>
+                <div className="flex items-center gap-4">
+                  <img
+                    src="/axis-channel-partner-badge.webp"
+                    alt="Axis Communications Authorized Channel Partner"
+                    width={52}
+                    height={63}
+                    className="shrink-0 rounded-md"
+                    loading="lazy"
+                  />
+                  <div>
+                    <p className="text-sm font-semibold text-charcoal-foreground mb-1">
+                      Certified Axis Channel Partner
+                    </p>
+                    <p className="text-[13px] text-charcoal-foreground/50 leading-relaxed">
+                      Our one formal manufacturer partnership. Everything else is
+                      specified and sourced on request.
+                    </p>
+                  </div>
                 </div>
-                <p className="text-[13px] text-charcoal-foreground/50 leading-relaxed">
-                  Our one formal manufacturer partnership. Everything else is specified
-                  and sourced on request.
-                </p>
               </div>
             </div>
           </motion.div>
