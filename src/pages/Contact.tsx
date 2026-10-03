@@ -16,14 +16,14 @@ const contactInfo = [
     label: "Phone",
     value: "+91 80745 91188",
     href: "tel:+918074591188",
-    sub: "Mon–Sat, 9 AM – 6 PM IST",
+    sub: "Mon–Fri, 9:30 AM – 5:30 PM IST",
   },
   {
     icon: Phone,
     label: "Alternate Phone",
     value: "+91 80742 81188",
     href: "tel:+918074281188",
-    sub: "Mon–Sat, 9 AM – 6 PM IST",
+    sub: "Mon–Fri, 9:30 AM – 5:30 PM IST",
   },
   {
     icon: Mail,
