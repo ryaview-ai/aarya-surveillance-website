@@ -219,7 +219,7 @@ const Index = () => (
             aria-hidden="true"
             width={1000}
             height={1249}
-            fetchPriority="high"
+            {...{ fetchpriority: "high" }}
             decoding="async"
             className="w-full max-w-[440px] h-auto select-none pointer-events-none
               [mask-image:radial-gradient(ellipse_at_center,black_55%,transparent_94%)]

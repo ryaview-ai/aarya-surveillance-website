@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom";
+import { Head } from "vite-react-ssg";
 import { Home } from "lucide-react";
 
 const NotFound = () => (
   <div className="flex min-h-screen items-center justify-center bg-muted">
+    <Head>
+      <title>Page Not Found — Aarya Surveillance</title>
+      <meta name="robots" content="noindex, follow" />
+    </Head>
     <div className="text-center px-4">
       <p className="text-secondary font-bold text-6xl mb-4">404</p>
       <h1 className="text-2xl font-bold mb-3">Page Not Found</h1>

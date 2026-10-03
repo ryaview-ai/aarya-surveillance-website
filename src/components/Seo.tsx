@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { Head } from "vite-react-ssg";
 
 const SITE = "https://aaryasurveillance.com";
 const OG_IMAGE = `${SITE}/og-image.png`;
@@ -12,58 +12,36 @@ interface Props {
   jsonLd?: Record<string, unknown>;
 }
 
-/** Sets or creates a <meta> tag by name or property. */
-const setMeta = (attr: "name" | "property", key: string, content: string) => {
-  let el = document.head.querySelector<HTMLMetaElement>(`meta[${attr}="${key}"]`);
-  if (!el) {
-    el = document.createElement("meta");
-    el.setAttribute(attr, key);
-    document.head.appendChild(el);
-  }
-  el.setAttribute("content", content);
-};
-
+/**
+ * Per-route document head, rendered via vite-react-ssg's <Head> (React Helmet).
+ * Unlike the previous useEffect version, these tags are emitted into the
+ * prerendered static HTML at build time, so crawlers see them without running JS.
+ */
 const Seo = ({ title, description, path, jsonLd }: Props) => {
-  useEffect(() => {
-    const url = `${SITE}${path === "/" ? "" : path}`;
+  const url = `${SITE}${path === "/" ? "" : path}`;
 
-    document.title = title;
+  return (
+    <Head>
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      <link rel="canonical" href={url} />
 
-    setMeta("name", "description", description);
-    setMeta("property", "og:title", title);
-    setMeta("property", "og:description", description);
-    setMeta("property", "og:url", url);
-    setMeta("property", "og:type", "website");
-    setMeta("property", "og:image", OG_IMAGE);
-    setMeta("name", "twitter:card", "summary_large_image");
-    setMeta("name", "twitter:title", title);
-    setMeta("name", "twitter:description", description);
-    setMeta("name", "twitter:image", OG_IMAGE);
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:url" content={url} />
+      <meta property="og:type" content="website" />
+      <meta property="og:image" content={OG_IMAGE} />
 
-    // Canonical
-    let link = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-    if (!link) {
-      link = document.createElement("link");
-      link.setAttribute("rel", "canonical");
-      document.head.appendChild(link);
-    }
-    link.setAttribute("href", url);
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={OG_IMAGE} />
 
-    // Page-scoped JSON-LD — removed on unmount so routes don't accumulate schema.
-    let script: HTMLScriptElement | null = null;
-    if (jsonLd) {
-      script = document.createElement("script");
-      script.type = "application/ld+json";
-      script.dataset.seoPage = "true";
-      script.textContent = JSON.stringify(jsonLd);
-      document.head.appendChild(script);
-    }
-    return () => {
-      if (script) document.head.removeChild(script);
-    };
-  }, [title, description, path, jsonLd]);
-
-  return null;
+      {jsonLd && (
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+      )}
+    </Head>
+  );
 };
 
 export default Seo;
