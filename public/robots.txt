@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://aaryasurveillance.com/sitemap.xml
+Sitemap: https://www.aaryasurveillance.com/sitemap.xml

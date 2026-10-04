@@ -1,6 +1,6 @@
 import { Head } from "vite-react-ssg";
 
-const SITE = "https://aaryasurveillance.com";
+const SITE = "https://www.aaryasurveillance.com";
 const OG_IMAGE = `${SITE}/og-image.png`;
 
 interface Props {

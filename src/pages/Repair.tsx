@@ -95,7 +95,7 @@ const repairJsonLd = {
     name: "Aarya Surveillance and Information Technology Solutions Private Limited",
     telephone: "+91-80745-91188",
     email: "solutions@aaryasurveillance.com",
-    url: "https://aaryasurveillance.com",
+    url: "https://www.aaryasurveillance.com",
     address: {
       "@type": "PostalAddress",
       streetAddress: "Sangmitra Apts No.402, H.No.10-3-1/2/402, Maredpally",

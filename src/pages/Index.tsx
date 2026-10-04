@@ -93,12 +93,12 @@ const whyCards = [
 const homeJsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://aaryasurveillance.com/#business",
+  "@id": "https://www.aaryasurveillance.com/#business",
   name: "Aarya Surveillance and Information Technology Solutions Private Limited",
   alternateName: "Aarya Surveillance",
   description:
     "Multi-brand CCTV and IP camera repair, equipment supply and AMC services in Secunderabad and Hyderabad, Telangana.",
-  url: "https://aaryasurveillance.com",
+  url: "https://www.aaryasurveillance.com",
   telephone: "+91-80745-91188",
   email: "solutions@aaryasurveillance.com",
   foundingDate: "2025",
