@@ -37,10 +37,10 @@ const About = () => (
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-secondary text-xs font-semibold uppercase tracking-widest mb-3">
+          <p className="font-mono text-secondary text-[11px] uppercase tracking-[0.2em] mb-5">
             About Us
           </p>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal-foreground mb-3">
+          <h1 className="text-4xl/[1.08] sm:text-5xl/[1.05] lg:text-6xl/[1.03] font-bold tracking-tight text-white text-balance mb-5">
             Who We Are
           </h1>
           <p className="text-charcoal-foreground/60 text-lg">

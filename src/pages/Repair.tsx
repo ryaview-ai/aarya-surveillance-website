@@ -7,6 +7,7 @@ import {
 import SectionWrapper from "@/components/SectionWrapper";
 import Seo from "@/components/Seo";
 import RepairTriageForm from "@/components/RepairTriageForm";
+import BrandCheck from "@/components/BrandCheck";
 import FaultDiagnoser from "@/components/FaultDiagnoser";
 import ProcessTimeline from "@/components/ProcessTimeline";
 
@@ -33,7 +34,7 @@ const painPoints = [
 const process = [
   { icon: Truck,        title: "Ship",     desc: "Courier the unit to our lab, we collect within Hyderabad, or we come to you." },
   { icon: Search,       title: "Diagnose", desc: "Full fault analysis with a written diagnostic report." },
-  { icon: Wrench,       title: "Repair",   desc: "Component-level repair by trained engineers." },
+  { icon: Wrench,       title: "Repair",   desc: "Component-level repair by trained engineers. Older units are serviced once the repair is done." },
   { icon: PackageCheck, title: "Return",   desc: "Tested, shipped back, job documented and closed." },
 ];
 
@@ -63,6 +64,9 @@ const whatWeFix = [
   "Image sensor and optics issues",
   "IR illuminator failure",
   "Board-level and component repair",
+  "PCB replacement where a board is beyond repair — subject to availability",
+  "Dome cleaning and refurbishment",
+  "Servicing of older units once the repair is complete",
 ];
 
 const sectors = [
@@ -147,10 +151,10 @@ const Repair = () => (
           transition={{ duration: 0.6 }}
           className="lg:col-span-7 max-w-3xl"
         >
-          <p className="text-secondary font-medium mb-5 tracking-[0.18em] text-[11px] uppercase">
+          <p className="font-mono text-secondary text-[11px] uppercase tracking-[0.2em] mb-5">
             Multi-Brand Camera Repair · Secunderabad
           </p>
-          <h1 className="text-3xl/[1.2] sm:text-4xl/[1.2] lg:text-[3.25rem]/[1.2] font-semibold text-charcoal-foreground mb-6 tracking-tight text-balance">
+          <h1 className="text-4xl/[1.08] sm:text-5xl/[1.05] lg:text-6xl/[1.03] font-bold tracking-tight text-white text-balance mb-5">
             Every brand. One lab.<br />
             <span className="text-secondary">Cameras repaired, not replaced.</span>
           </h1>
@@ -323,10 +327,7 @@ const Repair = () => (
             .
           </p>
         </div>
-        <p className="text-center text-sm text-muted-foreground mt-6">
-          Brand not listed? Send us the model number — we'll tell you honestly whether we
-          can repair it.
-        </p>
+        <BrandCheck brands={repairBrands.map((b) => b.name)} />
       </div>
     </SectionWrapper>
 

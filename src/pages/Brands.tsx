@@ -222,7 +222,7 @@ const Brands = () => (
   <main>
     <Seo title="Brands We Repair & Supply | Aarya Surveillance Hyderabad" description="Multi-brand system integrator in Hyderabad and Telangana. Certified Axis Channel Partner, with solution design and supply across i-PRO, IQSIGHT (formerly Bosch), Honeywell, Hanwha, CP Plus, Pelco, Cisco, HP, Dell and more." path="/brands" />
     {/* Hero */}
-    <section className="bg-charcoal pt-28 pb-16">
+    <section className="bg-ink pt-36 pb-20 border-b border-border">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           <motion.div
@@ -231,10 +231,10 @@ const Brands = () => (
             transition={{ duration: 0.6 }}
             className="lg:col-span-7"
           >
-            <p className="text-secondary text-xs font-semibold uppercase tracking-widest mb-3">
+            <p className="font-mono text-secondary text-[11px] uppercase tracking-[0.2em] mb-5">
               Brands We Work With
             </p>
-            <h1 className="text-3xl/[1.2] sm:text-4xl/[1.2] lg:text-5xl/[1.2] font-bold text-charcoal-foreground mb-4 text-balance">
+            <h1 className="text-4xl/[1.08] sm:text-5xl/[1.05] lg:text-6xl/[1.03] font-bold tracking-tight text-white text-balance mb-5">
               Any brand.{" "}
               <span className="text-secondary">The right one for the job.</span>
             </h1>

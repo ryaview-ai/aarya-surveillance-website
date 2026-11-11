@@ -101,15 +101,15 @@ const Contact = () => {
     <main>
       <Seo title="Contact Aarya Surveillance | CCTV Repair Enquiry, Secunderabad" description="Get a CCTV camera repair quote in Secunderabad and Hyderabad. Call +91 80745 91188 or send your camera make and model for an honest assessment." path="/contact" />
       {/* Hero */}
-      <section className="bg-charcoal pt-28 pb-16">
+      <section className="bg-ink pt-36 pb-20 border-b border-border">
         <div className="container mx-auto px-4 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-secondary text-sm font-medium uppercase tracking-wider mb-3">Contact Us</p>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal-foreground mb-3">
+            <p className="font-mono text-secondary text-[11px] uppercase tracking-[0.2em] mb-5">Contact Us</p>
+            <h1 className="text-4xl/[1.08] sm:text-5xl/[1.05] lg:text-6xl/[1.03] font-bold tracking-tight text-white text-balance mb-5">
               Let's Talk About <span className="text-secondary">Your Security</span>
             </h1>
             <p className="text-charcoal-foreground/60 text-lg max-w-2xl">
@@ -164,7 +164,9 @@ const Contact = () => {
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.2!2d78.5!3d17.45!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sMaredpally%2C+Secunderabad%2C+Telangana!5e0!3m2!1sen!2sin!4v1"
                 width="100%"
                 height="100%"
-                style={{ border: 0, minHeight: "300px" }}
+                // Google's embed has no dark style; invert + hue-rotate keeps roads
+                // and labels legible while matching the dark page.
+                style={{ border: 0, minHeight: "300px", filter: "invert(0.92) hue-rotate(180deg) saturate(0.6) contrast(0.9)" }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

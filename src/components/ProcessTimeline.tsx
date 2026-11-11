@@ -31,7 +31,7 @@ const ProcessTimeline = ({ steps }: { steps: Step[] }) => {
   return (
     <ol ref={ref} className="relative grid grid-cols-1 lg:grid-cols-4 gap-y-10 lg:gap-x-8 max-w-5xl mx-auto">
       {/* Rail: vertical on small screens, horizontal on large. */}
-      <div aria-hidden="true" className="absolute left-[19px] top-0 bottom-0 w-px bg-white/10 lg:left-0 lg:right-0 lg:top-[19px] lg:bottom-auto lg:h-px lg:w-auto">
+      <div aria-hidden="true" className="absolute left-[19px] top-0 bottom-0 w-[2px] bg-white/10 lg:left-0 lg:right-0 lg:top-[19px] lg:bottom-auto lg:h-[2px] lg:w-auto">
         <motion.div
           className="absolute inset-0 bg-secondary origin-top lg:origin-left hidden lg:block"
           style={{ scaleX: reduceMotion ? 1 : fill }}

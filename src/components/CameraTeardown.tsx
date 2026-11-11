@@ -53,6 +53,8 @@ interface Part {
   /** Wording taken from the "what we fix" list on /repair. Omitted where
    *  that list makes no matching claim. */
   onRepairList?: string;
+  /** What Aarya does about it, as stated by the owner. */
+  whatWeDo?: string;
 }
 
 const parts: Part[] = [
@@ -60,6 +62,8 @@ const parts: Part[] = [
     name: "Dome cover",
     fails:
       "Scratches, haze and UV yellowing soften the picture. At night a worn or dirty dome throws infrared back into the lens and the image turns milky white.",
+    whatWeDo:
+      "Domes are cleaned and professionally refurbished. Replacement domes are not always available, so a new one depends on whether a match can be sourced.",
   },
   {
     name: "Housing and seals",
@@ -83,6 +87,8 @@ const parts: Part[] = [
     fails:
       "A surge on the network or power line takes out the PoE stage or the Ethernet port. The camera won't power up, or keeps dropping off the network.",
     onRepairList: "Power and PoE faults · Board-level and component repair",
+    whatWeDo:
+      "Where a board is beyond repair, the PCB can be replaced — subject to a replacement being available.",
   },
   {
     name: "Base and connections",
@@ -160,6 +166,14 @@ const PartCopy = ({ part, index }: { part: Part; index: number }) => (
     <p className="text-sm sm:text-base lg:text-lg text-white/70 leading-relaxed max-w-md">
       {part.fails}
     </p>
+    {part.whatWeDo && (
+      <p className="mt-4 lg:mt-6 text-xs sm:text-sm text-white/70 leading-relaxed max-w-md border-l border-secondary-dark/60 pl-3">
+        <span className="font-mono text-[10px] tracking-[0.2em] uppercase block text-white/40 mb-0.5">
+          What we do
+        </span>
+        {part.whatWeDo}
+      </p>
+    )}
     {part.onRepairList && (
       <p className="mt-4 lg:mt-6 inline-flex items-start gap-2 text-xs sm:text-sm text-secondary-dark border-l border-secondary-dark/60 pl-3">
         <span>
