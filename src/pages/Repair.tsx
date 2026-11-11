@@ -7,6 +7,8 @@ import {
 import SectionWrapper from "@/components/SectionWrapper";
 import Seo from "@/components/Seo";
 import RepairTriageForm from "@/components/RepairTriageForm";
+import FaultDiagnoser from "@/components/FaultDiagnoser";
+import ProcessTimeline from "@/components/ProcessTimeline";
 
 /* ─── Data ─────────────────────────────────────────────────────────── */
 
@@ -203,6 +205,13 @@ const Repair = () => (
       </div>
     </section>
 
+    {/* ── Fault finder ── */}
+    <SectionWrapper className="py-20 lg:py-28 bg-background border-b border-border">
+      <div className="container mx-auto px-4 lg:px-8">
+        <FaultDiagnoser />
+      </div>
+    </SectionWrapper>
+
     {/* ── Why this exists ── */}
     <SectionWrapper className="py-20 bg-background">
       <div className="container mx-auto px-4 lg:px-8">
@@ -242,29 +251,9 @@ const Repair = () => (
             Four steps. Documented at every stage.
           </h2>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl mx-auto">
-          {process.map((s, i) => (
-            <motion.div
-              key={s.title}
-              initial="hidden" whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }} variants={fadeUp}
-              className="bg-charcoal-foreground/[0.04] border border-charcoal-foreground/10 rounded-xl p-6"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-secondary/15 flex items-center justify-center">
-                  <s.icon className="text-secondary" size={19} />
-                </div>
-                <span className="text-charcoal-foreground/35 font-semibold text-sm">
-                  0{i + 1}
-                </span>
-              </div>
-              <h3 className="font-semibold text-charcoal-foreground mb-2">{s.title}</h3>
-              <p className="text-sm text-charcoal-foreground/60 leading-relaxed">{s.desc}</p>
-            </motion.div>
-          ))}
-        </div>
+        <ProcessTimeline steps={process} />
 
-        <div className="mt-10 max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="mt-16 max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="bg-secondary/10 border border-secondary/25 rounded-xl p-6">
             <div className="flex items-start gap-3">
               <Clock className="text-secondary shrink-0 mt-0.5" size={18} />

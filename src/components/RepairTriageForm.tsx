@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import {
@@ -104,6 +104,16 @@ const RepairTriageForm = () => {
   const [sending, setSending]     = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError]         = useState("");
+
+  // The fault finder further up the page hands over the chosen symptom.
+  useEffect(() => {
+    const onPrefill = (e: Event) => {
+      const fault = (e as CustomEvent<string>).detail;
+      if (faultOptions.includes(fault)) setForm((f) => ({ ...f, fault }));
+    };
+    window.addEventListener("aarya:prefill-fault", onPrefill);
+    return () => window.removeEventListener("aarya:prefill-fault", onPrefill);
+  }, []);
 
   const update = (field: keyof TriageForm, value: string) =>
     setForm((f) => ({ ...f, [field]: value }));

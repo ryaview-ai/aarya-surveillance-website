@@ -274,7 +274,7 @@ const Index = () => (
                 <span
                   className={`text-[10px] font-semibold uppercase tracking-wide px-2.5 py-1 rounded-full ${
                     s.live
-                      ? "bg-secondary/15 text-secondary-foreground"
+                      ? "bg-secondary/15 text-secondary"
                       : "bg-muted-foreground/10 text-muted-foreground"
                   }`}
                 >

@@ -3,38 +3,39 @@
 @tailwind utilities;
 
 @layer base {
+  /* Dark throughout. Near-black surfaces, brass as the one warm accent,
+     a pale steel blue where the old navy was used as text or fill. */
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 20% 15%;
+    --background: 240 14% 4%;
+    --foreground: 0 0% 95%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 240 20% 15%;
+    --card: 240 11% 8%;
+    --card-foreground: 0 0% 95%;
 
-    --primary: 228 60% 27%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 222 55% 74%;
+    --primary-foreground: 240 14% 6%;
 
-    --secondary: 42 55% 45%;
-    --secondary-foreground: 228 60% 15%;
+    --secondary: 42 68% 58%;
+    --secondary-foreground: 228 60% 12%;
 
-    --muted: 228 20% 95%;
-    --muted-foreground: 228 10% 45%;
+    --muted: 240 10% 9%;
+    --muted-foreground: 228 8% 66%;
 
-    --accent: 42 55% 45%;
-    --accent-foreground: 228 60% 15%;
+    --accent: 42 68% 58%;
+    --accent-foreground: 228 60% 12%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 228 15% 88%;
-    --input: 228 15% 88%;
-    --ring: 228 60% 27%;
+    --border: 240 8% 17%;
+    --input: 240 8% 22%;
+    --ring: 42 68% 58%;
 
-    --radius: 0.625rem;
+    --radius: 0.375rem;
 
-    --charcoal: 240 18% 15%;
+    --charcoal: 240 12% 6.5%;
     --charcoal-foreground: 0 0% 95%;
 
-    /* Near-black for the teardown and hero; brass lifted for dark surfaces. */
     --ink: 240 14% 4%;
     --secondary-dark: 42 68% 58%;
   }
@@ -61,7 +62,7 @@
   }
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; color-scheme: dark; }
 
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: hsl(var(--muted)); }

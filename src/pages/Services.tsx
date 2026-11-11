@@ -192,7 +192,7 @@ const Services = () => (
               <div className="flex flex-wrap items-center gap-2 mb-3">
                 <span className={`text-[10px] font-semibold uppercase tracking-wide px-2.5 py-1 rounded-full ${
                   service.status === "live"
-                    ? "bg-secondary/15 text-secondary-foreground"
+                    ? "bg-secondary/15 text-secondary"
                     : "bg-muted-foreground/10 text-muted-foreground"
                 }`}>
                   {service.status === "live" ? "Available now" : "Building toward this"}
