@@ -33,6 +33,10 @@
 
     --charcoal: 240 18% 15%;
     --charcoal-foreground: 0 0% 95%;
+
+    /* Near-black for the teardown and hero; brass lifted for dark surfaces. */
+    --ink: 240 14% 4%;
+    --secondary-dark: 42 68% 58%;
   }
 }
 

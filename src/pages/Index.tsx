@@ -6,6 +6,7 @@ import {
 import { motion } from "framer-motion";
 import SectionWrapper from "@/components/SectionWrapper";
 import Seo from "@/components/Seo";
+import CameraTeardown from "@/components/CameraTeardown";
 
 /* ─── Data ─────────────────────────────────────────────────────────── */
 
@@ -147,92 +148,67 @@ const Index = () => (
       jsonLd={homeJsonLd}
     />
 
-    {/* ── Hero ── */}
-    <section className="relative min-h-[88vh] flex items-center overflow-hidden bg-charcoal">
+    {/* ── Hero ── type only; the camera lives in the teardown directly below ── */}
+    <section className="relative overflow-hidden bg-ink">
       <div
-        className="absolute inset-0 opacity-[0.05] pointer-events-none"
+        className="absolute inset-0 opacity-[0.07] pointer-events-none"
         style={{
-          backgroundImage: "radial-gradient(circle, hsl(42 55% 60%) 1px, transparent 1px)",
-          backgroundSize: "32px 32px",
+          backgroundImage:
+            "linear-gradient(hsl(0 0% 100%) 1px, transparent 1px), linear-gradient(90deg, hsl(0 0% 100%) 1px, transparent 1px)",
+          backgroundSize: "96px 96px",
+          maskImage: "linear-gradient(to bottom, black, transparent 85%)",
+          WebkitMaskImage: "linear-gradient(to bottom, black, transparent 85%)",
         }}
       />
-      <div className="container mx-auto px-4 lg:px-8 relative z-10 pt-28 pb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+      <div className="container mx-auto px-4 lg:px-8 relative z-10 pt-36 pb-16 lg:pt-44 lg:pb-20">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="lg:col-span-7 max-w-3xl"
         >
-          <p className="text-secondary font-medium mb-5 tracking-[0.18em] text-[11px] uppercase">
+          <p className="font-mono text-secondary-dark mb-6 tracking-[0.2em] text-[11px] uppercase">
             Multi-Brand Camera Repair · Secunderabad
           </p>
 
-          {/* leading-[1.2]: at 1.1 the gold line collides with the line above
-              as soon as it wraps to two lines at narrower desktop widths. */}
-          <h1 className="text-3xl/[1.2] sm:text-4xl/[1.2] lg:text-[3.25rem]/[1.2] xl:text-[3.75rem]/[1.2] font-semibold text-charcoal-foreground mb-7 tracking-tight text-balance">
+          {/* Line-height rides on each font size: a bare leading-* utility is
+              overridden by the responsive text-* variants that follow it. */}
+          <h1 className="text-[2.5rem]/[1.05] sm:text-6xl/[1.02] lg:text-[5.5rem]/[1] xl:text-[6.5rem]/[1] font-bold text-white mb-10 tracking-tight">
             Every brand. One lab.<br />
-            <span className="text-secondary">Cameras repaired, not replaced.</span>
+            <span className="text-secondary-dark">Cameras repaired,<br className="hidden sm:block" /> not replaced.</span>
           </h1>
 
-          <p className="text-base sm:text-lg text-charcoal-foreground/70 max-w-2xl mb-10 leading-relaxed">
-            Aarya Surveillance repairs CCTV and IP cameras of any make — including
-            end-of-life models the manufacturer has dropped. We also supply equipment and
-            run AMC contracts across mixed-brand estates. Based in Secunderabad, serving
-            Hyderabad and Telangana.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-3 mb-10">
-            <Link
-              to="/repair"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-secondary text-secondary-foreground font-semibold hover:brightness-105 transition-all duration-200"
-            >
-              Get a Camera Repaired <ArrowRight size={16} />
-            </Link>
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl border border-charcoal-foreground/20 text-charcoal-foreground/90 font-medium hover:border-secondary/50 hover:text-secondary transition-all duration-200"
-            >
-              Talk to us
-            </Link>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
+            <p className="lg:col-span-6 text-base sm:text-lg text-white/65 leading-relaxed">
+              Aarya Surveillance repairs CCTV and IP cameras of any make — including
+              end-of-life models the manufacturer has dropped. We also supply equipment and
+              run AMC contracts across mixed-brand estates. Based in Secunderabad, serving
+              Hyderabad and Telangana.
+            </p>
+            <div className="lg:col-span-6 flex flex-col sm:flex-row gap-3 lg:justify-end">
+              <Link
+                to="/repair"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-md bg-secondary-dark text-secondary-foreground font-semibold hover:brightness-110 transition-all duration-200"
+              >
+                Get a Camera Repaired <ArrowRight size={16} />
+              </Link>
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-md border border-white/20 text-white/90 font-medium hover:border-secondary-dark/60 hover:text-secondary-dark transition-all duration-200"
+              >
+                Talk to us
+              </Link>
+            </div>
           </div>
 
-          <p className="text-[11px] text-charcoal-foreground/55 tracking-[0.15em] uppercase">
+          <p className="mt-14 pt-6 border-t border-white/10 font-mono text-[10px] sm:text-[11px] text-white/45 tracking-[0.16em] uppercase">
             Established 2025 · MSME / Udyam Registered · GeM Seller · Honest Advice, Always
           </p>
         </motion.div>
-
-        {/* Illustration, not documentation — labelled as such below the image.
-            Hidden from assistive tech: it carries no information the copy
-            doesn't already state. */}
-        <motion.figure
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
-          className="hidden lg:flex lg:col-span-5 flex-col items-center"
-        >
-          <img
-            src="/hero-camera-exploded.webp"
-            srcSet="/hero-camera-exploded-sm.webp 560w, /hero-camera-exploded.webp 1000w"
-            sizes="(min-width: 1280px) 440px, 360px"
-            alt=""
-            aria-hidden="true"
-            width={1000}
-            height={1249}
-            {...{ fetchpriority: "high" }}
-            decoding="async"
-            className="w-full max-w-[440px] h-auto select-none pointer-events-none
-              [mask-image:radial-gradient(ellipse_at_center,black_55%,transparent_94%)]
-              [-webkit-mask-image:radial-gradient(ellipse_at_center,black_55%,transparent_94%)]"
-          />
-          <figcaption className="mt-4 text-[11px] text-charcoal-foreground/40 tracking-[0.12em] uppercase text-center">
-            Illustration — exploded view of a typical dome camera
-          </figcaption>
-        </motion.figure>
-
-        </div>
       </div>
     </section>
+
+    {/* ── Teardown ── */}
+    <CameraTeardown />
 
     {/* ── The gap we fill ── */}
     <SectionWrapper className="py-20 bg-background">
